@@ -20,9 +20,12 @@ const initialState={
 class App extends Component{
   render() {
     return (
+      <div>
+        <Navigation/>
+        <Signin/>
 
-      
-      <Register></Register>
+        <Register/>
+      </div>
       
     );
   }  

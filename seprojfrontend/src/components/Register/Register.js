@@ -1,5 +1,6 @@
 import React from 'react';
-import './Register.css'
+import './Register.css';
+import pic1 from './undraw.png';
 class Register extends React.Component {
   constructor(props) {
     super(props);
@@ -36,6 +37,7 @@ class Register extends React.Component {
     document.getElementById('textInput').className="show";
     document.getElementById('verify').className="show";
   }
+
   onSubmitSignIn = () => {
     
   }
@@ -43,7 +45,10 @@ class Register extends React.Component {
   render() {
     return (
       <article1>
-      <article className="br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 ma10 left " style={{marginTop:"10%" , marginLeft:"20%"}}>
+        <div class="mw9 center ph3-ns">
+        <div class="cf ph2-ns">
+          <div class="fl w-100 w-50-ns pa2">
+          <article className="br3 ba b--black-10 mv4 w-50-m w-60-l mw6 shadow-5 ma10 left " style={{marginTop:"10%" , marginLeft:"20%",marginRight:"0%"}}>
         <main className="pa4 black-80">
           <div className="measure">
             <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
@@ -145,6 +150,17 @@ class Register extends React.Component {
         
 
       </article>
+          </div>
+          <div class="fl w-100 w-40-ns pa2" >
+          <img style={{paddingTop: '5px', marginTop:"40%"}} alt='pic1' src={pic1}/>
+
+          </div>
+        </div>
+      </div>
+              
+      
+
+
 </article1>  
       
     );
