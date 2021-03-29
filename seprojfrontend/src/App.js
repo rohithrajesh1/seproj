@@ -21,8 +21,8 @@ class App extends Component{
   render() {
     return (
       <div>
-        <Navigation/>
-        <Signin/>
+        {/* <Navigation/>
+        <Signin/> */}
 
         <Register/>
       </div>

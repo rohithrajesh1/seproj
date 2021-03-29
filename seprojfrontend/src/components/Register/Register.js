@@ -42,6 +42,54 @@ class Register extends React.Component {
     
   }
 
+  onClickRegister=() =>{
+    var name_check = /^[A-Za-z ]+$/;
+    var numbers_check = /^[0-9]+$/;
+    var mail_check = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    
+    var name= document.getElementById("name").value;
+    var email=document.getElementById("email-address").value;
+    var password=document.getElementById("password").value;
+    var confpassword=document.getElementById("confpassword").value;
+    var phoneNumber=document.getElementById("phone").value;
+
+    if (!(password.valueOf()===confpassword.valueOf())){
+      console.log(password);
+      return alert("Password mismatch"+password)
+    }
+
+    if(!(name.trim().match(name_check) && phoneNumber.match(numbers_check) && email.trim().match(mail_check))){
+        return alert("Invalid entries")
+    }
+
+    fetch('http://localhost:2500/register', {
+      method:'post',
+      headers: {'Content-Type':'application/json',
+      'Accept': 'application/json'
+    },
+      body: JSON.stringify({
+        name:name,
+        email:email,
+        password:password,
+        phoneNumber:phoneNumber
+      })
+    })
+      .then(response => response.json())
+      .then(user=>{
+        if(user.email){
+          alert("Hello! "+user.name)
+        }
+        else{
+          alert("Invalid Credentials")
+        }
+      })
+    
+    
+  
+
+
+  }
+
   render() {
     return (
       <article1>
@@ -78,7 +126,7 @@ class Register extends React.Component {
                 <input
                   className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
                   type="password"
-                  name="password"
+                  
                   id="password"
                   onChange={this.onPasswordChange}
                 />
@@ -89,7 +137,7 @@ class Register extends React.Component {
                 <input
                   className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
                   type="password"
-                  name="password"
+                  
                   id="confpassword"
                   onChange={this.onConfirmPasswordChange}
                 />
@@ -138,7 +186,7 @@ class Register extends React.Component {
             </fieldset>
             <div className="">
               <input
-                onClick={this.onSubmitSignIn}
+                onClick={this.onClickRegister}
                 className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
                 type="submit"
                 value="Register"
