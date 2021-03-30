@@ -5,6 +5,8 @@ const cors = require('cors');
 
 const login = require('./controllers/login');
 const register= require('./controllers/register')
+const otp = require('./controllers/otp');
+
 
 const db = knex({
     client: 'pg',
@@ -29,6 +31,8 @@ db.select('*').from('teachers').then(data=>{
 
 app.post('/login', (req,res) => { login.handleLogin(req,res,db)} )
 app.post('/register', (req,res) => { register.handleRegister(req,res,db)} )
+app.post('/otp', (req,res) => { otp.handleotp(req,res)} )
+app.post('/verifyotp', (req,res) => { otp.handleverifyotp(req,res)} )
 
 app.listen( 2500 , ()=>{
     console.log('Server running on port 2500');

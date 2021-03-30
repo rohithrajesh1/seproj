@@ -34,11 +34,90 @@ class Register extends React.Component {
   }
 
   onGetotp= (btnPassport) =>{
-    document.getElementById('textInput').className="show";
+    
+
+    var numbers_check = /^[0-9]+$/;
+    var phonenumber=document.getElementById("phone").value;
+
+
+    if(!(phonenumber.match(numbers_check) )){
+      return alert("Invalid phone number")
+  }
+
+  if(phonenumber.length!=10){
+    return alert("Invalid phone number")
+  }
+
+  document.getElementById('chotp').className="show";
     document.getElementById('verify').className="show";
+
+  
+
+    fetch('http://localhost:2500/otp',{
+            method: 'post',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+              phonenumber:phonenumber
+            })
+        })
+        .then(response => response.json())
+        .then(resp => {
+          console.log(resp)
+            if(resp.status){
+              
+                alert("OTP sent");
+
+                //this.props.loadUser(user);
+            }
+            else{
+                alert("Invalid credentials")
+            }
+        })
+
   }
 
   onSubmitSignIn = () => {
+    
+  }
+
+  onClickVerify=() =>{
+    var chotp= document.getElementById("chotp").value;
+    var numbers_check = /^[0-9]+$/;
+    if(!(chotp.match(numbers_check) )){
+      return alert("OTP can only be numbers"+chotp)
+    }
+    if(chotp.length!=4){
+      return alert("Re-enter OTP, OTP is 4 digits")
+    }
+
+    fetch('http://localhost:2500/verifyotp',{
+            method: 'post',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+              chotp:chotp
+            })
+        })
+        .then(response => response.json())
+        .then(resp => {
+          console.log(resp)
+            if(resp.status){
+              if(resp.status==="Success"){
+                alert("OTP successfully verified");
+
+              }
+              else{
+                alert("OTP mismatch");
+              }
+              
+                
+
+                //this.props.loadUser(user);
+            }
+            else{
+                alert("Didn't receive OTP try again")
+            }
+        })
+
     
   }
 
@@ -55,7 +134,7 @@ class Register extends React.Component {
 
     if (!(password.valueOf()===confpassword.valueOf())){
       console.log(password);
-      return alert("Password mismatch"+password)
+      return alert("Password mismatch")
     }
 
     if(!(name.trim().match(name_check) && phoneNumber.match(numbers_check) && email.trim().match(mail_check))){
@@ -168,12 +247,12 @@ class Register extends React.Component {
             <div class=" center ">
                 <div class="flex">
                     <div class="fl w-75 pa1">
-                    <input className="hide" type="text" id="textInput"  placeholder="Enter OTP here" />
+                    <input className="hide" type="text" id="chotp"  placeholder="Enter OTP here" />
                     </div>
                     <div class="fl w-25 pa1">
                     <input
                 id="verify"    
-                onClick={this.onSubmitSignIn}
+                onClick={this.onClickVerify}
                 className="hide b pv2 input-reset ba b--black bg-transparent grow pointer f6 "
                 type="button"
                 value="Verify"
