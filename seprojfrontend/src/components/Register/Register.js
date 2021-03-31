@@ -36,6 +36,7 @@ class Register extends React.Component {
   onGetotp= (btnPassport) =>{
     document.getElementById('textInput').className="show";
     document.getElementById('verify').className="show";
+    
   }
 
   onSubmitSignIn = () => {

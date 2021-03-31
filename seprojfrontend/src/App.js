@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import Signin from './components/Signin/Signin';
 import Register from './components/Register/Register';
 import Navigation from './components/Navigation/Navigation';
+import Timetable from './components/Timetable/Timetable';
+import Home from './components/Home/Home';
 import './App.css';
 import 'tachyons'; 
 const initialState={
@@ -21,10 +23,11 @@ class App extends Component{
   render() {
     return (
       <div>
-        <Navigation/>
+        <Timetable/>
+        {/* <Navigation/>
         <Signin/>
 
-        <Register/>
+        <Register/> */}
       </div>
       
     );
