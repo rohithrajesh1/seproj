@@ -23,6 +23,105 @@ class Signin extends React.Component {
         })
 
     }
+    disppass=()=>{
+        document.getElementById('pass').className="hide";
+        document.getElementById('otpsign').className="show";
+        document.getElementById('chotp').className="hide";
+        document.getElementById('verify').className="hide";
+
+    }
+
+    disppass1=()=>{
+        document.getElementById('pass').className="show";
+        document.getElementById('otpsign').className="hide";
+    }
+
+    onGetotp= (btnPassport) =>{
+    
+
+        var numbers_check = /^[0-9]+$/;
+        var phonenumber=document.getElementById("phone").value;
+    
+    
+        if(!(phonenumber.match(numbers_check) )){
+          return alert("Invalid phone number")
+      }
+    
+      if(phonenumber.length!=10){
+        return alert("Invalid phone number")
+      }
+    
+        document.getElementById('chotp').className="show";
+        document.getElementById('verify').className="show";
+        
+    
+      
+    
+        fetch('http://localhost:2500/otp',{
+                method: 'post',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                  phonenumber:phonenumber
+                })
+            })
+            .then(response => response.json())
+            .then(resp => {
+              console.log(resp)
+                if(resp.status){
+                  
+                    alert("OTP sent");
+    
+                    //this.props.loadUser(user);
+                }
+                else{
+                    alert("Invalid credentials")
+                }
+            })
+    
+      }
+    
+    
+      onClickVerify=() =>{
+        var chotp= document.getElementById("chotp").value;
+        var numbers_check = /^[0-9]+$/;
+        if(!(chotp.match(numbers_check) )){
+          return alert("OTP can only be numbers"+chotp)
+        }
+        if(chotp.length!=4){
+          return alert("Re-enter OTP, OTP is 4 digits")
+        }
+    
+        fetch('http://localhost:2500/verifyotp',{
+                method: 'post',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                  chotp:chotp
+                })
+            })
+            .then(response => response.json())
+            .then(resp => {
+              console.log(resp)
+                if(resp.status){
+                  if(resp.status==="Success"){
+                    alert("OTP successfully verified");
+                    this.setState.otpVerified=true;
+    
+                  }
+                  else{
+                    alert("OTP mismatch");
+                  }
+                  
+                    
+    
+                    //this.props.loadUser(user);
+                }
+                else{
+                    alert("Didn't receive OTP try again")
+                }
+            })
+    
+        
+      }
     render() {
         return (
             <article className="br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center ">
@@ -30,27 +129,71 @@ class Signin extends React.Component {
             <div className="measure">
                 <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
                 <legend className="f1 fw6 ph0 mh0 center">Sign In</legend>
-                <div className="mt3">
-                    <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
-                    <input
-                    className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
-                    type="email"
-                    name="email-address"
-                    id="email-address"
-                    onChange={this.onEmailChange}
-                    />
+                <div className="lh-copy mt3">
+                    <p className="f6 link dim black db pointer underline" onClick={this.disppass1}>Sign in using password</p>
+                    <p className="f6 link dim black db pointer underline" onClick={this.disppass}>Sign in using OTP</p>
                 </div>
-                <div className="mv3">
-                    <label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
+                <div id='pass'>
+                    <div className="mt3">
+                        <label className="db fw6 lh-copy f6" htmlFor="email-address">Email</label>
+                        <input
+                        className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
+                        type="email"
+                        name="email-address"
+                        id="email-address"
+                        onChange={this.onEmailChange}
+                        />
+                    </div>
+                    <div className="mv3">
+                        <label className="db fw6 lh-copy f6" htmlFor="password">Password</label>
+                        <input
+                        className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
+                        type="password"
+                        name="password"
+                        id="password"
+                        onChange={this.onPasswordChange}
+                        />
+                    </div>
+                </div>
+                <div id='otpsign' className='hide'>
+                    <div className="mv3">
+                    <label className="db fw6 lh-copy f6" htmlFor="password">Phone number (10 digit number without country code)</label>
                     <input
                     className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
-                    type="password"
-                    name="password"
-                    id="password"
-                    onChange={this.onPasswordChange}
+                    type="tel"
+                    name="phone"
+                    id="phone"
+                    onChange={this.onPhoneChange}
                     />
+                    </div>
+                        <div class="verif">
+                        <input
+                            onClick={this.onGetotp}
+                            className="f6 link dim br1 ba ph3 pv2 mb2 dib dark-blue bg-transparent"
+                            type="button"
+                            value="Get OTP"
+                        />
+                        </div>
+                    
+                    <div class=" center ">
+                        <div class="flex">
+                            <div class="fl w-75 pa1">
+                            <input className="hide" type="text" id="chotp"  placeholder="Enter OTP here" />
+                            </div>
+                            <div class="fl w-25 pa1">
+                            <input
+                            id="verify"    
+                            onClick={this.onClickVerify}
+                            className="hide b pv2 input-reset ba b--black bg-transparent grow pointer f6 "
+                            type="button"
+                            value="Verify"
+                            />
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 </fieldset>
+
                 <div className="">
                 <input
                     onClick={this.onSubmitSignIn}
