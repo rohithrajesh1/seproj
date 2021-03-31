@@ -10,12 +10,19 @@ const otp = require('./controllers/otp');
 
 const db = knex({
     client: 'pg',
-    connection: {
+    /*connection: {
       host : 'roomoccupancy.postgres.database.azure.com',
       user : 'dhanvanth_06@roomoccupancy',
       password : 'Thudu@123',
       database : 'roomoccupancy',
       ssl: true
+    }*/
+    connection: {
+      host : 'localhost',
+      port: 5432,
+      user : 'postgres',
+      password : 'Thudu',
+      database : 'roomoccupancy',
     }
   });
 
