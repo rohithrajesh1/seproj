@@ -1,5 +1,28 @@
 import React from 'react';
 class Signin extends React.Component {
+    onSubmitSignIn =()=>{
+        fetch('http://localhost:2500/login',{
+            method: 'post',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                email: document.getElementById("email-address").value,
+                password: document.getElementById("password").value
+            })
+        })
+        .then(response => response.json())
+        .then(user => {
+            if(user.email){
+                alert("Hello! "+user.name);
+
+                console.log(user);
+                //this.props.loadUser(user);
+            }
+            else{
+                alert("Invalid credentials")
+            }
+        })
+
+    }
     render() {
         return (
             <article className="br3 ba b--black-10 mv4 w-100 w-50-m w-25-l mw6 shadow-5 center ">
