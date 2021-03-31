@@ -23,16 +23,7 @@ class App extends Component{
   render() {
     return (
       <div>
-<<<<<<< HEAD
         <Timetable/>
-        {/* <Navigation/>
-        <Signin/>
-=======
-        {/* <Navigation/>
-        <Signin/> */}
->>>>>>> 9cfe1ee2dc7a75a4d7e410ec3c2f8efbe5acadf8
-
-        <Register/> */}
       </div>
       
     );
