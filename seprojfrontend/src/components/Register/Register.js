@@ -9,10 +9,11 @@ class Register extends React.Component {
       password: '',
       name: '',
       confpassword:'',
-      phone:''
+      phone:'',
+      otpVerified:false
     }
   }
-
+  
   onNameChange = (event) => {
     this.setState({name: event.target.value})
   }
@@ -48,7 +49,7 @@ class Register extends React.Component {
     return alert("Invalid phone number")
   }
 
-  document.getElementById('chotp').className="show";
+    document.getElementById('chotp').className="show";
     document.getElementById('verify').className="show";
     
 
@@ -104,6 +105,7 @@ class Register extends React.Component {
             if(resp.status){
               if(resp.status==="Success"){
                 alert("OTP successfully verified");
+                this.setState.otpVerified=true;
 
               }
               else{
@@ -138,8 +140,13 @@ class Register extends React.Component {
       return alert("Password mismatch")
     }
 
+
     if(!(name.trim().match(name_check) && phoneNumber.match(numbers_check) && email.trim().match(mail_check))){
         return alert("Invalid entries")
+    }
+
+    if(this.otpVerified === false){
+      return alert("OTP not yet verified")
     }
 
     fetch('http://localhost:2500/register', {

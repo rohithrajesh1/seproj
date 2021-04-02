@@ -12,20 +12,37 @@ const initialState={
   input:'',
   route:'signin',
   isSignedIn: false,
-  user: {
-    id: '',
-    name: '',
-    email: '',
-    entries: 0,
-    joined: ''
-  }
+  
 }
-class App extends Component{
-  render() {
-    return (
-      <div>
-        <Getdata/>
 
+class App extends Component{
+  constructor(){ 
+    super();
+    this.state=initialState;
+
+  }
+  onRouteChange = (route) => {
+    
+    this.setState({route: route});
+  }
+  render() {
+    const {route} = this.state;
+    return (
+      
+      <div>
+
+          { route === 'signin'
+            ? <div>
+                <Signin onRouteChange={this.onRouteChange}/>
+                
+              </div>
+            : (
+              route === 'register'
+              ? <Register/>
+              
+              : <Register loadUser={this.loadUser} onRouteChange={this.onRouteChange}/>
+              )
+          }
       </div>
       
     );
