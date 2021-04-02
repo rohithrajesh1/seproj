@@ -156,7 +156,7 @@ class Timetable extends React.Component {
         return (
             <div class="pa4"> 
                 
-                <h1 class="f3 f2-m f1-l fw6 black-90 mv3 b center" style={{marginTop:"0%"}}>
+                <h1 class="f3 f2-m f1-l fw6 black-90 mv3 b center" style={{marginTop:"2%"}}>
                     Input the class timetable in this window:      
                 </h1>
 

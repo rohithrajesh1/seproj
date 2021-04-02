@@ -5,7 +5,9 @@ import Register from './components/Register/Register';
 import Navigation from './components/Navigation/Navigation';
 import Timetable from './components/Timetable/Timetable';
 import Getdata from './components/Timetable/Getdata';
+import ClassTimeTable from './components/Timetable/ClassTimeTable';
 import Home from './components/Home/Home';
+import Aftersignin from './components/Signin/aftersignin'
 import Forgotpass from './components/Forgotpass/Forgotpass';
 
 import './App.css';
@@ -32,8 +34,11 @@ class App extends Component{
     return (
       
       <div>
+        
         <Navigation onRouteChange={this.onRouteChange}/>
-          {  route === 'home'
+        <ClassTimeTable onRouteChange={this.onRouteChange}/>
+        
+          {/* {  route === 'home'
             ? 
               <Home onRouteChange={this.onRouteChange}/>
 
@@ -43,21 +48,17 @@ class App extends Component{
                 <Register onRouteChange={this.onRouteChange}/>
               : route === 'signin'
                 ?
-                  <Signin/>
-                : route === 'timetable'
+                  <Signin onRouteChange={this.onRouteChange}/>
+                : route === 'aftersignin'
                   ?
-                  <Timetable/>
-                  : <Timetable/>
-               
+                  <Aftersignin onRouteChange={this.onRouteChange}/>
+                  : route==='forgotpass'
+                    ?
+                    <Forgotpass onRouteChange={this.onRouteChange}/>
+                    :<Getdata onRouteChange={this.onRouteChange}/>
               
               
-              /* if(route==='home'){
-                <Home onRouteChange={this.onRouteChange}/>
-              }
-              if(route==='register'){
-                <Register onRouteChange={this.onRouteChange}/>
-              } */
-          }
+          } */}
       </div>
       
     );

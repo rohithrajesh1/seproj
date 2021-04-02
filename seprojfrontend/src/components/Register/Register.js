@@ -105,6 +105,8 @@ class Register extends React.Component {
                 alert("OTP successfully verified");
                 this.setState.otpVerified=true;
                 document.getElementById("reg").disabled=false;
+                document.getElementById("reg").onclick=this.onClickRegister;
+
               }
               else{
                 alert("OTP mismatch");
@@ -146,7 +148,7 @@ class Register extends React.Component {
     if(this.otpVerified === false){
       return alert("OTP not yet verified")
     }
-    this.props.onRouteChange('signin')
+    
 
     fetch('http://localhost:2500/register', {
       method:'post',
@@ -164,6 +166,7 @@ class Register extends React.Component {
       .then(user=>{
         if(user.email){
           alert("Hello! "+user.name)
+          this.props.onRouteChange('signin')
 
           
         }
