@@ -4,6 +4,7 @@ import Signin from './components/Signin/Signin';
 import Register from './components/Register/Register';
 import Navigation from './components/Navigation/Navigation';
 import Timetable from './components/Timetable/Timetable';
+import Getdata from './components/Timetable/Getdata';
 import Home from './components/Home/Home';
 import Forgotpass from './components/Forgotpass/Forgotpass';
 
@@ -29,6 +30,7 @@ class App extends Component{
   render() {
     const {route} = this.state;
     return (
+      
       <div>
         <Navigation onRouteChange={this.onRouteChange}/>
           {  route === 'home'
