@@ -4,6 +4,7 @@ import Signin from './components/Signin/Signin';
 import Register from './components/Register/Register';
 import Navigation from './components/Navigation/Navigation';
 import Timetable from './components/Timetable/Timetable';
+import Getdata from './components/Timetable/Getdata';
 import Home from './components/Home/Home';
 import './App.css';
 import 'tachyons'; 
@@ -23,7 +24,7 @@ class App extends Component{
   render() {
     return (
       <div>
-        <Register/>
+        <Getdata/>
 
       </div>
       

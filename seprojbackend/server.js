@@ -6,6 +6,8 @@ const cors = require('cors');
 const login = require('./controllers/login');
 const register= require('./controllers/register')
 const otp = require('./controllers/otp');
+const getTeachers= require('./controllers/getTeachers');
+const storeTimetable=require('./controllers/storeTimetable');
 
 
 const db = knex({
@@ -30,9 +32,10 @@ const db = knex({
 const app = express();
 
 app.use(bodyParser.json());
+
 app.use(cors());
 
-db.select('*').from('teachers').then(data=>{
+db.select('email','name').from('teachers').then(data=>{
     console.log(data);
 });
 
@@ -40,6 +43,8 @@ app.post('/login', (req,res) => { login.handleLogin(req,res,db)} )
 app.post('/register', (req,res) => { register.handleRegister(req,res,db)} )
 app.post('/otp', (req,res) => { otp.handleotp(req,res)} )
 app.post('/verifyotp', (req,res) => { otp.handleverifyotp(req,res)} )
+app.post('/getTeachers', (req,res) => { getTeachers.handleGetTeachers(req,res,db)} )
+app.post('/storeTimetable', (req,res) => { storeTimetable.onStoreTimetable(req,res,db)} )
 
 app.listen( 2500 , ()=>{
     console.log('Server running on port 2500');
