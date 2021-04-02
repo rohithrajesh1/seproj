@@ -78,9 +78,7 @@ class Register extends React.Component {
 
   }
 
-  onSubmitSignIn = () => {
-    
-  }
+
 
   onClickVerify=() =>{
     var chotp= document.getElementById("chotp").value;
@@ -106,7 +104,7 @@ class Register extends React.Component {
               if(resp.status==="Success"){
                 alert("OTP successfully verified");
                 this.setState.otpVerified=true;
-
+                document.getElementById("reg").disabled=false;
               }
               else{
                 alert("OTP mismatch");
@@ -148,6 +146,7 @@ class Register extends React.Component {
     if(this.otpVerified === false){
       return alert("OTP not yet verified")
     }
+    this.props.onRouteChange('signin')
 
     fetch('http://localhost:2500/register', {
       method:'post',
@@ -165,6 +164,8 @@ class Register extends React.Component {
       .then(user=>{
         if(user.email){
           alert("Hello! "+user.name)
+
+          
         }
         else{
           alert("Invalid Credentials")
@@ -178,6 +179,7 @@ class Register extends React.Component {
   }
 
   render() {
+    const { onRouteChange } = this.props;
     return (
       <article1>
         <div class="mw9 center ph3-ns">
@@ -276,7 +278,9 @@ class Register extends React.Component {
                 onClick={this.onClickRegister}
                 className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
                 type="submit"
+                id="reg"
                 value="Register"
+                disabled={true}
               />
             </div>
           </div>
@@ -286,8 +290,16 @@ class Register extends React.Component {
 
       </article>
           </div>
-          <div class="fl w-100 w-40-ns pa2" >
-          <img style={{paddingTop: '5px', marginTop:"40%"}} alt='pic1' src={pic1}/>
+          <div class="fl w-100 w-40-ns pa2"  style={{ marginTop:"10%",marginLeft:"2%"}}>
+            <h2>If already registered click this button</h2>
+            <input
+                onClick={() => onRouteChange('signin')}
+                className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
+                type="submit"
+                value="Click to Sign In"
+                style={{ marginLeft:"30%"}}
+              />
+            <img style={{paddingTop: '5px', marginTop:"15%"}} alt='pic1' src={pic1}/>
 
           </div>
         </div>

@@ -13,7 +13,7 @@ class Signin extends React.Component {
         .then(user => {
             if(user.email){
                 alert("Hello! "+user.name);
-
+                
                 console.log(user);
                 //this.props.loadUser(user);
             }
@@ -192,6 +192,9 @@ class Signin extends React.Component {
                         </div>
                     </div>
                 </div>
+                    <div className="lh-copy mt3">
+                        <p className="f6 link dim black db pointer underline" >Forgot password</p>
+                    </div>
                 </fieldset>
 
                 <div className="">
