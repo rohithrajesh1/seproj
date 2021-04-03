@@ -26,6 +26,21 @@ const handleGetTeachers =(req,res,db) => {
 
 
     }
+    else if(choice==="rooms"){
+        db.select('roomnumber').from('classroom')
+        .then(data =>{
+            console.log(data)
+            res.json(data)
+        })
+        .catch(err => {
+            console.log("hide")
+            res.status(400).json('Error while getting choice')
+        })
+
+
+    }
+
+
 
 }
     

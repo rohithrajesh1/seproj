@@ -36,9 +36,9 @@ class App extends Component{
       <div>
         
         <Navigation onRouteChange={this.onRouteChange}/>
-        <ClassTimeTable onRouteChange={this.onRouteChange}/>
+        {/* <ClassTimeTable onRouteChange={this.onRouteChange}/> */}
         
-          {/* {  route === 'home'
+          {  route === 'home'
             ? 
               <Home onRouteChange={this.onRouteChange}/>
 
@@ -58,7 +58,7 @@ class App extends Component{
                     :<Getdata onRouteChange={this.onRouteChange}/>
               
               
-          } */}
+          }
       </div>
       
     );

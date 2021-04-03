@@ -137,7 +137,8 @@ const greedyAlgo=(req,res,db,sub_table,fac_table,room_size_table,room_table,clas
                         //res.json({
                          //   status:"Success"
                         //})
-                        console.log("Success roomoccupancy chart")
+                        if(!(flag))
+                            console.log("Success roomoccupancy chart")
                         //roomAllocAlgo.handleRoomAllocAlgo(req,res,sub_table,fac_table,db)
                         
                     }) // We try to execute all of them
