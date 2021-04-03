@@ -4,10 +4,12 @@ class ProfessorTimetable extends React.Component {
 
     constructor(props){
         super(props);
-        this.state={
-            array:[],
-            array_class:[]
-        }    
+        this.state=[]
+    }
+
+
+    onGetProfTimeTable = () => {
+        
     }
 
     render() {
@@ -15,6 +17,11 @@ class ProfessorTimetable extends React.Component {
         //let classOptionItems = class_list.map((item) =>
           //      <option value={item.secnumber}>{item.secnumber}</option>
             //);
+
+        let prof_list = this.props.state;
+        let profOptionItems = prof_list.map((item) =>
+                <option value={item.secnumber}>{item.secnumber}</option>
+            );      
         return(
             <div>
                 <h1 class="f3 f2-m f1-l fw6 black-90 mv3 b center" style={{marginTop:"2%",marginLeft:"3%"}}>
@@ -26,13 +33,24 @@ class ProfessorTimetable extends React.Component {
                     <div class="pa3 bt b--black-10">
                         <select id="chclass" class="w-100 db h2 f6 bg-near-white ba b--sliver gray" name="" >
                             <option value="">Choose professor name </option>
-                            
+                            {profOptionItems}
                         </select>
                     </div>
                 </article>
 
+                <div className="" style={{textAlign:'center'}}>
+                    <input
+                        onClick={this.onGetProfTimeTable}
+                        className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
+                        type="button"
+                        id="reg"
+                        value="Get timetable"
+
+                    />
+                </div>
+
                 <div class="overflow-auto">
-                <table class="f6 w-100 mw8 center" cellspacing="0">
+                <table class="f6 w-100 mw8 center" cellspacing="0" style={{marginTop:'2%'}}>
                 <thead>
                     <tr class="stripe-dark">
                     <th class="fw6 tl pa3 bg-white">Day</th>

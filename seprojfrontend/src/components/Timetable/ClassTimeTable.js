@@ -5,9 +5,10 @@ class ClassTimeTable extends React.Component {
     constructor(props){
         super(props);
         this.state=[]
+        this.flag=false
     }
     onGetClassTimeTable = () => {
-        
+        this.flag=true
     }
     render() {
 
@@ -20,7 +21,8 @@ class ClassTimeTable extends React.Component {
                 <option value={item.secnumber}>{item.secnumber}</option>
             );    
         return(
-            <div>
+            <div >
+                
                 <h1 class="f3 f2-m f1-l fw6 black-90 mv3 b center" style={{marginTop:"2%",marginLeft:"3%"}}>
                     Check your class time table here:    
                 </h1>

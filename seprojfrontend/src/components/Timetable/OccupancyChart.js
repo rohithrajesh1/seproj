@@ -4,13 +4,17 @@ class OccupancyChart extends React.Component {
 
     constructor(props){
         super(props);
-        this.state={
-            array:[],
-            array_class:[]
-        }    
+        this.state=[]
+    }    
+    onGetRoomTimeTable = () => {
+        
     }
 
     render() {
+        let room_list = this.props.state;
+        let roomOptionItems = room_list.map((item) =>
+                <option value={item.secnumber}>{item.secnumber}</option>
+            ); 
         //let class_list = this.props.state.array_class;
         //let classOptionItems = class_list.map((item) =>
           //      <option value={item.secnumber}>{item.secnumber}</option>
@@ -26,13 +30,23 @@ class OccupancyChart extends React.Component {
                     <div class="pa3 bt b--black-10">
                         <select id="chclass" class="w-100 db h2 f6 bg-near-white ba b--sliver gray" name="" >
                             <option value="">Choose room number</option>
-                            
+                            {roomOptionItems}
                         </select>
                     </div>
                 </article>
+                <div className="" style={{textAlign:'center'}}>
+                    <input
+                        onClick={this.onGetRoomTimeTable}
+                        className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
+                        type="button"
+                        id="reg"
+                        value="Get timetable"
+
+                    />
+                </div>
 
                 <div class="overflow-auto">
-                <table class="f6 w-100 mw8 center" cellspacing="0">
+                <table class="f6 w-100 mw8 center" cellspacing="0" style={{marginTop:'2%'}}>
                 <thead>
                     <tr class="stripe-dark">
                     <th class="fw6 tl pa3 bg-white">Day</th>
@@ -50,7 +64,7 @@ class OccupancyChart extends React.Component {
                     <td class="pa3 bg-white" >Monday</td>
                     <td class="pa3">
                         <div>
-                            
+
                             
                         </div>
                     </td>
