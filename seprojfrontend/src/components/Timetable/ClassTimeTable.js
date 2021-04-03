@@ -5,18 +5,48 @@ class ClassTimeTable extends React.Component {
     constructor(props){
         super(props);
         this.state={
-            arr:[],
-            a:4,
-            flag:false
+            sub_array:{
+                "MONDAY":[null,null,null,null,null,null]
+
+            },
+            prof_array:[],
+            room_array:[]
 
         }
         
-        
     }
     onGetClassTimeTable = () => {
-        this.flag=true
-        this.setState({a:2});
+        const secnumber=document.getElementById('chclass').value
+        if(!secnumber)
+            return alert("Choose a Class")
+        fetch('http://localhost:2500/getClassTimetable',{
+            method: 'post',
+            headers: {'Content-Type': 'application/json'},
+            
+            body: JSON.stringify({
+              secnumber:secnumber
+            })
 
+
+        })
+        .then(response=> response.json())
+        .then(resp=> {
+            if(resp.sub_array){
+
+                
+                this.setState({
+                    sub_array:resp.sub_array,
+                    prof_array:resp.prof_array,
+                    room_array:resp.room_array
+                })
+                console.log(this.state)
+
+            
+            }
+            else{
+                return alert("Failed getClasses")
+            }
+        })
     }
     render() {
 
@@ -24,7 +54,7 @@ class ClassTimeTable extends React.Component {
         //let classOptionItems = class_list.map((item) =>
           //      <option value={item.secnumber}>{item.secnumber}</option>
             //);
-        let class_list = this.props.state.array_class;
+        let class_list = this.props.data;
         let classOptionItems = class_list.map((item) =>
                 <option value={item.secnumber}>{item.secnumber}</option>
             );
@@ -78,8 +108,8 @@ class ClassTimeTable extends React.Component {
                     <td class="pa3 bg-white" >Monday</td>
                     <td class="pa3">
                         <div>
+                            {this.state.sub_array["MONDAY"][0]}
 
-                            {this.state.a}
                         </div>
                     </td>
                     <td class="pa3">

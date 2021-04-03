@@ -4,11 +4,46 @@ class ProfessorTimetable extends React.Component {
 
     constructor(props){
         super(props);
-        this.state=[]
+        this.state={
+            sub_array:[],
+            room_array:[],
+            class_array:[]
+
+        }
     }
 
 
     onGetProfTimeTable = () => {
+        const email=document.getElementById('chprof').value
+        alert(email)
+        fetch('http://localhost:2500/getTeacherTimetable',{
+            method: 'post',
+            headers: {'Content-Type': 'application/json'},
+            
+            body: JSON.stringify({
+              email:email
+            })
+
+
+        })
+        .then(response=> response.json())
+        .then(resp=> {
+            if(resp.sub_array){
+
+                
+                this.setState({
+                    sub_array:resp.sub_array,
+                    class_array:resp.class_array,
+                    room_array:resp.room_array
+                })
+                console.log(this.state)
+
+            
+            }
+            else{
+                return alert("Failed getFaculty")
+            }
+        })
         
     }
 
@@ -18,9 +53,9 @@ class ProfessorTimetable extends React.Component {
           //      <option value={item.secnumber}>{item.secnumber}</option>
             //);
 
-        let prof_list = this.props.state;
-        let profOptionItems = prof_list.map((item) =>
-                <option value={item.secnumber}>{item.secnumber}</option>
+        let teacher_list = this.props.data;
+        let profOptionItems = teacher_list.map((item) =>
+                <option value={item.email}>{item.name} - {item.email}</option>
             );      
         return(
             <div>
@@ -31,7 +66,7 @@ class ProfessorTimetable extends React.Component {
                 <article class="center mw5 mw6-ns br3 hidden ba b--black-10 mv4">
                     <h1 class="f4 bg-near-white br3 br--top black-60 mv0 pv2 ph3">Choose professor name from the list below</h1>
                     <div class="pa3 bt b--black-10">
-                        <select id="chclass" class="w-100 db h2 f6 bg-near-white ba b--sliver gray" name="" >
+                        <select id="chprof" class="w-100 db h2 f6 bg-near-white ba b--sliver gray" name="" >
                             <option value="">Choose professor name </option>
                             {profOptionItems}
                         </select>

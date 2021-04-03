@@ -4,16 +4,49 @@ class OccupancyChart extends React.Component {
 
     constructor(props){
         super(props);
-        this.state=[]
+        this.state={
+            sub_array:[],
+            prof_array:[],
+            class_array:[]
+
+        }
     }    
     onGetRoomTimeTable = () => {
-        
+        const roomnumber=document.getElementById('chroom').value
+        fetch('http://localhost:2500/getRoomOccchart',{
+            method: 'post',
+            headers: {'Content-Type': 'application/json'},
+            
+            body: JSON.stringify({
+              roomnumber:roomnumber
+            })
+
+
+        })
+        .then(response=> response.json())
+        .then(resp=> {
+            if(resp.sub_array){
+
+                
+                this.setState({
+                    sub_array:resp.sub_array,
+                    prof_array:resp.prof_array,
+                    class_array:resp.class_array
+                })
+                console.log(this.state)
+
+            
+            }
+            else{
+                return alert("Failed getRoom")
+            }
+        })
     }
 
     render() {
-        let room_list = this.props.state;
+        let room_list = this.props.data;
         let roomOptionItems = room_list.map((item) =>
-                <option value={item.secnumber}>{item.secnumber}</option>
+                <option value={item.roomnumber}>{item.roomnumber}</option>
             ); 
         //let class_list = this.props.state.array_class;
         //let classOptionItems = class_list.map((item) =>
@@ -28,7 +61,7 @@ class OccupancyChart extends React.Component {
                 <article class="center mw5 mw6-ns br3 hidden ba b--black-10 mv4">
                     <h1 class="f4 bg-near-white br3 br--top black-60 mv0 pv2 ph3">Choose room number from the list below</h1>
                     <div class="pa3 bt b--black-10">
-                        <select id="chclass" class="w-100 db h2 f6 bg-near-white ba b--sliver gray" name="" >
+                        <select id="chroom" class="w-100 db h2 f6 bg-near-white ba b--sliver gray" name="" >
                             <option value="">Choose room number</option>
                             {roomOptionItems}
                         </select>

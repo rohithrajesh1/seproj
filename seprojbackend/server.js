@@ -8,6 +8,9 @@ const register= require('./controllers/register')
 const otp = require('./controllers/otp');
 const getTeachers= require('./controllers/getTeachers');
 const storeTimetable=require('./controllers/storeTimetable');
+const getTeacherTimetable=require('./controllers/getTeacherTimetable');
+const getClassTimetable=require('./controllers/getClassTimetable');
+const getRommOccchart=require('./controllers/getRoomOccchart');
 
 
 const db = knex({
@@ -23,7 +26,7 @@ const db = knex({
       host : 'localhost',
       port: 5432,
       user : 'postgres',
-      password : '1077',
+      password : 'Thudu',
       database : 'roomoccupancy',
     }
   });
@@ -45,6 +48,9 @@ app.post('/otp', (req,res) => { otp.handleotp(req,res)} )
 app.post('/verifyotp', (req,res) => { otp.handleverifyotp(req,res)} )
 app.post('/getTeachers', (req,res) => { getTeachers.handleGetTeachers(req,res,db)} )
 app.post('/storeTimetable', (req,res) => { storeTimetable.onStoreTimetable(req,res,db)} )
+app.post('/getTeacherTimetable',(req,res)=>{getTeacherTimetable.handleGetTeacherTimetable(req,res,db)})
+app.post('/getClassTimetable',(req,res)=>{getClassTimetable.handleGetClassTimetable(req,res,db)})
+app.post('/getRoomOccchart',(req,res)=>{getRommOccchart.handleGetRoomOccchart(req,res,db)})
 
 app.listen( 2500 , ()=>{
     console.log('Server running on port 2500');

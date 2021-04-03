@@ -143,17 +143,17 @@ class Getdata extends React.Component {
                     :
                     choice==='dispcltimetable'
                     ?
-                    <ClassTimeTable state={this.state}/>
+                    <ClassTimeTable data={this.state.array_class}/>
                     :
                     choice==='dispproftimetable'
                     ?
-                    <ProfessorTimetable state={this.state.array}/>
+                    <ProfessorTimetable data={this.state.array}/>
                     :
                     choice==='disproomtimetable'
                     ?
-                    <OccupancyChart state={this.state.array_room}/>
+                    <OccupancyChart data={this.state.array_room}/>
                     :
-                    <OccupancyChart state={this.state.array_room}/>
+                    <OccupancyChart data={this.state.array_room}/>
 
                 }
                 

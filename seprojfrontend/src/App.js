@@ -69,7 +69,7 @@ class App extends Component{
                           :route==='dispproftimetable'
                             ?
                             <Getdata choice={'dispproftimetable'} onRouteChange={this.onRouteChange}/>
-                            :<Getdata choice={'dispproftimetable'} onRouteChange={this.onRouteChange}/>
+                            :<Getdata choice={'disproomtimetable'} onRouteChange={this.onRouteChange}/>
 
 
                           
