@@ -6,8 +6,11 @@ class ClassTimeTable extends React.Component {
         super(props);
         this.state=[]
     }
-
+    onGetClassTimeTable = () => {
+        
+    }
     render() {
+
         //let class_list = this.props.state.array_class;
         //let classOptionItems = class_list.map((item) =>
           //      <option value={item.secnumber}>{item.secnumber}</option>
@@ -32,8 +35,19 @@ class ClassTimeTable extends React.Component {
                     </div>
                 </article>
 
+                <div className="" style={{textAlign:'center'}}>
+                    <input
+                        onClick={this.onGetClassTimeTable}
+                        className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
+                        type="button"
+                        id="reg"
+                        value="Get timetable"
+
+                    />
+                </div>
+
                 <div class="overflow-auto">
-                <table class="f6 w-100 mw8 center" cellspacing="0">
+                <table class="f6 w-100 mw8 center" cellspacing="0" style={{marginTop:'2%'}}>
                 <thead>
                     <tr class="stripe-dark">
                     <th class="fw6 tl pa3 bg-white">Day</th>
