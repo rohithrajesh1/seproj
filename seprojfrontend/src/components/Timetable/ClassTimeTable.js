@@ -47,9 +47,10 @@ class ClassTimeTable extends React.Component {
                 <tbody class="lh-copy">
                     <tr class="stripe-dark">
                     <td class="pa3 bg-white" >Monday</td>
-                    <td class="pa3"><div>
+                    <td class="pa3">
+                        <div>
                         
-
+                        Class1
                         </div>
                     </td>
                     <td class="pa3">
