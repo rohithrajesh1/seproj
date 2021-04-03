@@ -57,7 +57,7 @@ class aftersignin extends React.Component {
 
             <div id="reserops" className="hide" >
             <input
-                onClick={() => onRouteChange('timetable')}
+                onClick={() => onRouteChange('settimetable')}
                 className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f5 dib"
                 type="submit"
                 id="usingtt"

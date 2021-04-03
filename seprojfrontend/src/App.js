@@ -6,6 +6,8 @@ import Navigation from './components/Navigation/Navigation';
 import Timetable from './components/Timetable/Timetable';
 import Getdata from './components/Timetable/Getdata';
 import ClassTimeTable from './components/Timetable/ClassTimeTable';
+import ProfessorTimetable from './components/Timetable/ProfessorTimetable';
+import OccupancyChart from './components/Timetable/OccupancyChart';
 import Home from './components/Home/Home';
 import Aftersignin from './components/Signin/aftersignin'
 import Forgotpass from './components/Forgotpass/Forgotpass';
@@ -36,9 +38,9 @@ class App extends Component{
       <div>
         
         <Navigation onRouteChange={this.onRouteChange}/>
-        <ClassTimeTable onRouteChange={this.onRouteChange}/>
+        {/* <OccupancyChart onRouteChange={this.onRouteChange}/> */}
         
-          {/* {  route === 'home'
+          {  route === 'home'
             ? 
               <Home onRouteChange={this.onRouteChange}/>
 
@@ -55,10 +57,24 @@ class App extends Component{
                   : route==='forgotpass'
                     ?
                     <Forgotpass onRouteChange={this.onRouteChange}/>
-                    :<Getdata onRouteChange={this.onRouteChange}/>
+                    :route==='settimetable'
+                      ?
+                      <Getdata choice={'restimetable'} onRouteChange={this.onRouteChange}/>
+                      :route==='dispcltimetable'
+                        ?
+                        <Getdata choice={'dispcltimetable'} onRouteChange={this.onRouteChange}/>
+                        :route==='disproomtimetable'
+                          ?
+                          <Getdata choice={'disproomtimetable'} onRouteChange={this.onRouteChange}/>
+                          :route==='dispproftimetable'
+                            ?
+                            <Getdata choice={'dispproftimetable'} onRouteChange={this.onRouteChange}/>
+                            :<Getdata choice={'dispproftimetable'} onRouteChange={this.onRouteChange}/>
+
+
+                          
               
-              
-          } */}
+          }
       </div>
       
     );

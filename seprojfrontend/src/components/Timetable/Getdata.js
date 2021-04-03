@@ -1,5 +1,8 @@
 import React from 'react';
 import Signin from '../Signin/Signin';
+import ClassTimeTable from './ClassTimeTable';
+import OccupancyChart from './OccupancyChart';
+import ProfessorTimetable from './ProfessorTimetable';
 import Timetable from './Timetable';
 
 var percentArray = [];
@@ -16,7 +19,8 @@ class Getdata extends React.Component {
         super()
         this.state={
             array:[],
-            array_class:[]
+            array_class:[],
+            array_room:[]
         }
         
 
@@ -48,7 +52,8 @@ class Getdata extends React.Component {
                 }
                 this.setState({
                     array:teacher_list,
-                    array_class:this.state.array_class
+                    array_class:this.state.array_class,
+                    array_room:this.state.array_room
                 })
                 console.log(this.state.array)
 
@@ -77,9 +82,10 @@ class Getdata extends React.Component {
                 
                 this.setState({
                     array:this.state.array,
-                    array_class:resp
+                    array_class:resp,
+                    array_room:this.state.array_room
                 })
-                console.log(this.state.array)
+                console.log(this.state.array_class)
 
             
             }
@@ -88,15 +94,71 @@ class Getdata extends React.Component {
             }
         })
         
+
+
+        fetch('http://localhost:2500/getTeachers',{
+            method: 'post',
+            headers: {'Content-Type': 'application/json'},
+            
+            body: JSON.stringify({
+              choice:"rooms"
+            })
+
+
+        })
+        .then(response=> response.json())
+        .then(resp=> {
+            if(resp[0].roomnumber){
+
+                
+                this.setState({
+                    array:this.state.array,
+                    array_class:this.state.array_class,
+                    array_room:resp
+                })
+                console.log(this.state.array_room)
+
+            
+            }
+            else{
+                return alert("Failed getRooms")
+            }
+        })
         
     }
 
 
 
+
     render() {
+        const choice=this.props.choice;
+        console.log(choice)
         return(
             //<Signin />
-            <Timetable state={this.state}/>
+            <div>
+                {
+                    choice==='restimetable'
+                    ?
+                    <Timetable state={this.state}/>
+                    :
+                    choice==='dispcltimetable'
+                    ?
+                    <ClassTimeTable state={this.state.array_class}/>
+                    :
+                    choice==='dispproftimetable'
+                    ?
+                    <ProfessorTimetable state={this.state.array}/>
+                    :
+                    choice==='disproomtimetable'
+                    ?
+                    <OccupancyChart state={this.state.array_room}/>
+                    :
+                    <OccupancyChart state={this.state.array_room}/>
+
+                }
+                
+            </div>
+            
             )
     
     }

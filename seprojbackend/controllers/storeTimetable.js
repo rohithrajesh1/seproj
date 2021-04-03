@@ -13,6 +13,8 @@ const onStoreTimetable =(req,res,db) => {
         5:"FRIDAY"
     }
 
+    
+
     var new_data;
 
     db.select('*')
@@ -22,18 +24,22 @@ const onStoreTimetable =(req,res,db) => {
         //console.log(data.length)
         new_data=data
         //console.log("nd"+new_data)
+        var mrk=false;
+        
+        
 
 
         db.transaction(trx=>{
             var queries=[]
             for(var ech=0;ech<new_data.length;ech++){
                 //console.log(new_data[ech].email)
-                if(new_data[ech].email){
+                if((new_data[ech].email)){
                     //console.log(new_data[ech])
-                    const query1= trx('professor_timetable')
+                    const query1= db('professor_timetable')
                     .where('email','=',new_data[ech].email)
                     .andWhere('day','=',new_data[ech].day)
                     .andWhere('period','=',new_data[ech].period)
+                    .andWhere('secnumber','=',secnumber)
                     .update({
                         roomnumber:null,
                         secnumber: null,
@@ -43,7 +49,7 @@ const onStoreTimetable =(req,res,db) => {
     
                     queries.push(query1)
     
-                    const query2=trx('class_timetable')
+                    const query2=db('class_timetable')
                         .where('secnumber','=',new_data[ech].secnumber)
                         .andWhere('day','=',new_data[ech].day)
                         .andWhere('period','=',new_data[ech].period)
@@ -57,7 +63,7 @@ const onStoreTimetable =(req,res,db) => {
                     
                     queries.push(query2)
                     if(new_data[ech].roomnumber){
-                        const query3=trx('room_occ_chart')
+                        const query3=db('room_occ_chart')
                         .where('roomnumber','=',new_data[ech].roomnumber)
                         .andWhere('day','=',new_data[ech].day)
                         .andWhere('period','=',new_data[ech].period)
@@ -83,12 +89,14 @@ const onStoreTimetable =(req,res,db) => {
             }
     
             return Promise.all(queries) // Once every query is written
-            .then(data=>{
+            .then(data1=>{
                 trx.commit
+                console.log(data1)
                 console.log("Success clearTimetable")
+            
                 db.transaction(trx => {
                     const queries = [];
-            
+                    var flg=false
                     for (var day=1;day<=5;day++){
                         for(var per=1;per<=6;per++){
                             var ent_fac=fac_table[week_full[day]][per-1];
@@ -114,11 +122,14 @@ const onStoreTimetable =(req,res,db) => {
                                 .transacting(trx)
                             
                             queries.push(query)
+
+                            
             
                             const query1=db('professor_timetable')
-                            .where('email', '=', ent_fac)
+                            .whereNull('secnumber')
+                            .andWhere('email', '=', ent_fac)
                             .andWhere('day','=', week_full[day])
-                            .andWhere('period','=', `${per}`)
+                            .andWhere('period','=', `${per}`)        
                             .update({
                                 secnumber: secnumber,
                                 subject: ent_sub

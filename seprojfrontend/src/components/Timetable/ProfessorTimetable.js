@@ -1,10 +1,13 @@
 import React from 'react';
 
-class ClassTimeTable extends React.Component {
+class ProfessorTimetable extends React.Component {
 
     constructor(props){
         super(props);
-        this.state=[]
+        this.state={
+            array:[],
+            array_class:[]
+        }    
     }
 
     render() {
@@ -12,22 +15,18 @@ class ClassTimeTable extends React.Component {
         //let classOptionItems = class_list.map((item) =>
           //      <option value={item.secnumber}>{item.secnumber}</option>
             //);
-        let class_list = this.props.state;
-        let classOptionItems = class_list.map((item) =>
-                <option value={item.secnumber}>{item.secnumber}</option>
-            );    
         return(
             <div>
                 <h1 class="f3 f2-m f1-l fw6 black-90 mv3 b center" style={{marginTop:"2%",marginLeft:"3%"}}>
-                    Check your class time table here:    
+                    Choose professor name to view timetable 
                 </h1>
 
                 <article class="center mw5 mw6-ns br3 hidden ba b--black-10 mv4">
-                    <h1 class="f4 bg-near-white br3 br--top black-60 mv0 pv2 ph3">Choose the class here</h1>
+                    <h1 class="f4 bg-near-white br3 br--top black-60 mv0 pv2 ph3">Choose professor name from the list below</h1>
                     <div class="pa3 bt b--black-10">
                         <select id="chclass" class="w-100 db h2 f6 bg-near-white ba b--sliver gray" name="" >
-                            <option value="">Choose the class</option>
-                            {classOptionItems}
+                            <option value="">Choose professor name </option>
+                            
                         </select>
                     </div>
                 </article>
@@ -52,7 +51,7 @@ class ClassTimeTable extends React.Component {
                     <td class="pa3">
                         <div>
 
-
+                            
                         </div>
                     </td>
                     <td class="pa3">
@@ -258,4 +257,4 @@ class ClassTimeTable extends React.Component {
 
 
 
-export default ClassTimeTable;
+export default ProfessorTimetable;
