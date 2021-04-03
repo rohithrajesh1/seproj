@@ -15,6 +15,7 @@ class ProfessorTimetable extends React.Component {
 
     onGetProfTimeTable = () => {
         const email=document.getElementById('chprof').value
+        alert(email)
         fetch('http://localhost:2500/getTeacherTimetable',{
             method: 'post',
             headers: {'Content-Type': 'application/json'},
