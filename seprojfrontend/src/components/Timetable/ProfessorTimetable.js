@@ -5,9 +5,30 @@ class ProfessorTimetable extends React.Component {
     constructor(props){
         super(props);
         this.state={
-            sub_array:[],
-            room_array:[],
-            class_array:[]
+            sub_array:{
+                "MONDAY":[null,null,null,null,null,null],
+                "TUESDAY":[null,null,null,null,null,null],
+                "WEDNESDAY":[null,null,null,null,null,null],
+                "THURSDAY":[null,null,null,null,null,null],
+                "FRIDAY":[null,null,null,null,null,null]
+
+            },
+            room_array:{
+                "MONDAY":[null,null,null,null,null,null],
+                "TUESDAY":[null,null,null,null,null,null],
+                "WEDNESDAY":[null,null,null,null,null,null],
+                "THURSDAY":[null,null,null,null,null,null],
+                "FRIDAY":[null,null,null,null,null,null]
+
+            },
+            class_array:{
+                "MONDAY":[null,null,null,null,null,null],
+                "TUESDAY":[null,null,null,null,null,null],
+                "WEDNESDAY":[null,null,null,null,null,null],
+                "THURSDAY":[null,null,null,null,null,null],
+                "FRIDAY":[null,null,null,null,null,null]
+
+            }
 
         }
     }
@@ -15,7 +36,7 @@ class ProfessorTimetable extends React.Component {
 
     onGetProfTimeTable = () => {
         const email=document.getElementById('chprof').value
-        alert(email)
+        //alert(email)
         fetch('http://localhost:2500/getTeacherTimetable',{
             method: 'post',
             headers: {'Content-Type': 'application/json'},
@@ -85,7 +106,7 @@ class ProfessorTimetable extends React.Component {
                 </div>
 
                 <div class="overflow-auto">
-                <table class="f6 w-100 mw8 center" cellspacing="0" style={{marginTop:'2%'}}>
+                <table class="f6 w-100 mw8 center" cellspacing="0" style={{marginTop:'2%',marginBottom:'2%'}}>
                 <thead>
                     <tr class="stripe-dark">
                     <th class="fw6 tl pa3 bg-white">Day</th>
@@ -103,36 +124,53 @@ class ProfessorTimetable extends React.Component {
                     <td class="pa3 bg-white" >Monday</td>
                     <td class="pa3">
                         <div>
+                            <p>{this.state.class_array["MONDAY"][0]}</p>
+                            <p>{this.state.sub_array["MONDAY"][0]}</p>
+                            <p>{this.state.room_array["MONDAY"][0]}</p>
 
                             
                         </div>
                     </td>
                     <td class="pa3">
                         <div>
-                        
+                        <p>{this.state.class_array["MONDAY"][1]}</p>
+                            <p>{this.state.sub_array["MONDAY"][1]}</p>
+                            <p>{this.state.room_array["MONDAY"][1]}</p>
 
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                           
+                        <p>{this.state.class_array["MONDAY"][2]}</p>
+                            <p>{this.state.sub_array["MONDAY"][2]}</p>
+                            <p>{this.state.room_array["MONDAY"][2]}</p>
+
 
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                          
+                        <p>{this.state.class_array["MONDAY"][3]}</p>
+                            <p>{this.state.sub_array["MONDAY"][3]}</p>
+                            <p>{this.state.room_array["MONDAY"][3]}</p>
+
 
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                            
+                        <p>{this.state.class_array["MONDAY"][4]}</p>
+                            <p>{this.state.sub_array["MONDAY"][4]}</p>
+                            <p>{this.state.room_array["MONDAY"][4]}</p>
+
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                        
+                        <p>{this.state.class_array["MONDAY"][5]}</p>
+                            <p>{this.state.sub_array["MONDAY"][5]}</p>
+                            <p>{this.state.room_array["MONDAY"][5]}</p>
+
 
                             </div>
                         </td>
@@ -141,36 +179,49 @@ class ProfessorTimetable extends React.Component {
                     <td class="pa3 bg-white">Tuesday</td>
                     <td class="pa3">
                         <div>
+                        <p>{this.state.class_array["TUESDAY"][0]}</p>
+                            <p>{this.state.sub_array["TUESDAY"][0]}</p>
+                            <p>{this.state.room_array["TUESDAY"][0]}</p>
                             
 
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                            
+                        <p>{this.state.class_array["TUESDAY"][1]}</p>
+                            <p>{this.state.sub_array["TUESDAY"][1]}</p>
+                            <p>{this.state.room_array["TUESDAY"][1]}</p>
 
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                           
+                        <p>{this.state.class_array["TUESDAY"][2]}</p>
+                            <p>{this.state.sub_array["TUESDAY"][2]}</p>
+                            <p>{this.state.room_array["TUESDAY"][2]}</p>
 
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                           
+                        <p>{this.state.class_array["TUESDAY"][3]}</p>
+                            <p>{this.state.sub_array["TUESDAY"][3]}</p>
+                            <p>{this.state.room_array["TUESDAY"][3]}</p>
 
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                           
+                        <p>{this.state.class_array["TUESDAY"][4]}</p>
+                            <p>{this.state.sub_array["TUESDAY"][4]}</p>
+                            <p>{this.state.room_array["TUESDAY"][4]}</p>
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                           
+                        <p>{this.state.class_array["TUESDAY"][5]}</p>
+                            <p>{this.state.sub_array["TUESDAY"][5]}</p>
+                            <p>{this.state.room_array["TUESDAY"][5]}</p>
 
                             </div>
                         </td>
@@ -180,36 +231,49 @@ class ProfessorTimetable extends React.Component {
                     <td class="pa3 bg-white">Wednesday</td>
                     <td class="pa3">
                         <div>
+                        <p>{this.state.class_array["WEDNESDAY"][0]}</p>
+                            <p>{this.state.sub_array["WEDNESDAY"][0]}</p>
+                            <p>{this.state.room_array["WEDNESDAY"][0]}</p>
                            
 
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                           
+                        <p>{this.state.class_array["WEDNESDAY"][1]}</p>
+                            <p>{this.state.sub_array["WEDNESDAY"][1]}</p>
+                            <p>{this.state.room_array["WEDNESDAY"][1]}</p>
 
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                           
+                        <p>{this.state.class_array["WEDNESDAY"][2]}</p>
+                            <p>{this.state.sub_array["WEDNESDAY"][2]}</p>
+                            <p>{this.state.room_array["WEDNESDAY"][2]}</p>
 
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                           
+                        <p>{this.state.class_array["WEDNESDAY"][3]}</p>
+                            <p>{this.state.sub_array["WEDNESDAY"][3]}</p>
+                            <p>{this.state.room_array["WEDNESDAY"][3]}</p>
 
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                           
+                        <p>{this.state.class_array["WEDNESDAY"][4]}</p>
+                            <p>{this.state.sub_array["WEDNESDAY"][4]}</p>
+                            <p>{this.state.room_array["WEDNESDAY"][4]}</p>
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                            
+                        <p>{this.state.class_array["WEDNESDAY"][5]}</p>
+                            <p>{this.state.sub_array["WEDNESDAY"][5]}</p>
+                            <p>{this.state.room_array["WEDNESDAY"][5]}</p>
 
                             </div>
                         </td>
@@ -218,34 +282,47 @@ class ProfessorTimetable extends React.Component {
                     <td class="pa3 bg-white">Thursday</td>
                     <td class="pa3">
                         <div>
-                            
+                        <p>{this.state.class_array["THURSDAY"][0]}</p>
+                            <p>{this.state.sub_array["THURSDAY"][0]}</p>
+                            <p>{this.state.room_array["THURSDAY"][0]}</p>
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
+                        <p>{this.state.class_array["THURSDAY"][1]}</p>
+                            <p>{this.state.sub_array["THURSDAY"][1]}</p>
+                            <p>{this.state.room_array["THURSDAY"][1]}</p>
                             
 
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                            
+                        <p>{this.state.class_array["THURSDAY"][2]}</p>
+                            <p>{this.state.sub_array["THURSDAY"][2]}</p>
+                            <p>{this.state.room_array["THURSDAY"][2]}</p>
 
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                            
+                        <p>{this.state.class_array["THURSDAY"][3]}</p>
+                            <p>{this.state.sub_array["THURSDAY"][3]}</p>
+                            <p>{this.state.room_array["THURSDAY"][3]}</p>
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                            
+                        <p>{this.state.class_array["THURSDAY"][4]}</p>
+                            <p>{this.state.sub_array["THURSDAY"][4]}</p>
+                            <p>{this.state.room_array["THURSDAY"][4]}</p>
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                            
+                        <p>{this.state.class_array["THURSDAY"][5]}</p>
+                            <p>{this.state.sub_array["THURSDAY"][5]}</p>
+                            <p>{this.state.room_array["THURSDAY"][5]}</p>
 
                             </div>
                         </td>
@@ -254,36 +331,48 @@ class ProfessorTimetable extends React.Component {
                     <td class="pa3 bg-white">Friday</td>
                     <td class="pa3">
                         <div>
-                            
+                        <p>{this.state.class_array["FRIDAY"][0]}</p>
+                            <p>{this.state.sub_array["FRIDAY"][0]}</p>
+                            <p>{this.state.room_array["FRIDAY"][0]}</p>
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                            
+                        <p>{this.state.class_array["FRIDAY"][1]}</p>
+                            <p>{this.state.sub_array["FRIDAY"][1]}</p>
+                            <p>{this.state.room_array["FRIDAY"][1]}</p>
 
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                            
+                        <p>{this.state.class_array["FRIDAY"][2]}</p>
+                            <p>{this.state.sub_array["FRIDAY"][2]}</p>
+                            <p>{this.state.room_array["FRIDAY"][2]}</p>
 
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                            
+                        <p>{this.state.class_array["FRIDAY"][3]}</p>
+                            <p>{this.state.sub_array["FRIDAY"][3]}</p>
+                            <p>{this.state.room_array["FRIDAY"][3]}</p>
 
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                            
+                        <p>{this.state.class_array["FRIDAY"][4]}</p>
+                            <p>{this.state.sub_array["FRIDAY"][4]}</p>
+                            <p>{this.state.room_array["FRIDAY"][4]}</p>
 
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                            
+                        <p>{this.state.class_array["FRIDAY"][5]}</p>
+                            <p>{this.state.sub_array["FRIDAY"][5]}</p>
+                            <p>{this.state.room_array["FRIDAY"][5]}</p>
 
                             </div>
                         </td>

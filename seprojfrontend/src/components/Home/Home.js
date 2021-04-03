@@ -29,9 +29,9 @@ class Home extends React.Component {
                 </div>
         
                 <header class="tc ph4">
-                <div className="br3 ba b--black-10 mv4 w-100-m w-100-l mw12 shadow-5 ma3 center pa9 bg--home"> 
+                <div className="br3 b--black-10 mv4 w-100-m w-100-l mw12 shadow-5 ma3 center pa12" style={{backgroundColor:"beige"}}> 
 
-                    <h1 class="f3 f2-m f1-l fw6 black-90 mv3 b " style={{marginTop:"8%",paddingTop:"0"}}>
+                    <h1 class="f3 f2-m f1-l fw6 black-90 mv3 b " style={{marginTop:"8%",paddingTop:"2%",paddingBottom:"2%"}}>
                         Welcome to our Room Occupancy Chart Generation Application
                     </h1>
                 </div>    
@@ -51,14 +51,14 @@ class Home extends React.Component {
                         <div class="fl w-100 w-50-ns pa2">
                         <div class="ph3 mb4 ma4">
 
-                    <a class="f2 link dim br3 ba bw2 ph3 pv2 mb2 dib  dark-red "  href="#0" onClick={() => onRouteChange('register')}>Reserve a room or Cancel a room booking </a>
+                    <a class="f2 link dim br3 ba bw2 ph3 pv2 mb2 dib  "  href="#0" onClick={() => onRouteChange('register')}>Reserve a room or Cancel a room booking </a>
 
                 </div>
                         </div>
                         <div class="fl w-100 w-50-ns pa2 center">
                             <div class="ph3 mb4 ma4">
 
-                            <a class="f2 link dim br3 ba bw2 ph3 pv2 mb2 dib  dark-red "  href="#0" onClick={() => onRouteChange('dispcltimetable')}>View Timetables or Room Occupancy Charts</a>
+                            <a class="f2 link dim br3 ba bw2 ph3 pv2 mb2 dib  "  href="#0" onClick={() => onRouteChange('view')}>View Timetables or Room Occupancy Charts</a>
 
                             </div>
                         </div>

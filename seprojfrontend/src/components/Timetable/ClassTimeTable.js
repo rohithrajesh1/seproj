@@ -6,11 +6,29 @@ class ClassTimeTable extends React.Component {
         super(props);
         this.state={
             sub_array:{
-                "MONDAY":[null,null,null,null,null,null]
+                "MONDAY":[null,null,null,null,null,null],
+                "TUESDAY":[null,null,null,null,null,null],
+                "WEDNESDAY":[null,null,null,null,null,null],
+                "THURSDAY":[null,null,null,null,null,null],
+                "FRIDAY":[null,null,null,null,null,null]
 
             },
-            prof_array:[],
-            room_array:[]
+            prof_array:{
+                "MONDAY":[null,null,null,null,null,null],
+                "TUESDAY":[null,null,null,null,null,null],
+                "WEDNESDAY":[null,null,null,null,null,null],
+                "THURSDAY":[null,null,null,null,null,null],
+                "FRIDAY":[null,null,null,null,null,null]
+
+            },
+            room_array:{
+                "MONDAY":[null,null,null,null,null,null],
+                "TUESDAY":[null,null,null,null,null,null],
+                "WEDNESDAY":[null,null,null,null,null,null],
+                "THURSDAY":[null,null,null,null,null,null],
+                "FRIDAY":[null,null,null,null,null,null]
+
+            }
 
         }
         
@@ -90,7 +108,7 @@ class ClassTimeTable extends React.Component {
                 </div>
                 
                 <div class="overflow-auto">
-                <table class="f6 w-100 mw8 center" cellspacing="0" style={{marginTop:'2%'}}>
+                <table class="f6 w-100 mw8 center" cellspacing="0" style={{marginTop:'2%',marginBottom:'2%'}}>
                 <thead>
                     <tr class="stripe-dark">
                     <th class="fw6 tl pa3 bg-white">Day</th>
@@ -108,36 +126,52 @@ class ClassTimeTable extends React.Component {
                     <td class="pa3 bg-white" >Monday</td>
                     <td class="pa3">
                         <div>
-                            {this.state.sub_array["MONDAY"][0]}
+                            <p>{this.state.sub_array["MONDAY"][0]}</p>
+                            <p>{this.state.prof_array["MONDAY"][0]}</p>
+                            <p>{this.state.room_array["MONDAY"][0]}</p>
 
                         </div>
                     </td>
                     <td class="pa3">
                         <div>
-                        
-
-                            </div>
-                        </td>
-                        <td class="pa3">
-                        <div>
-                           
-
-                            </div>
-                        </td>
-                        <td class="pa3">
-                        <div>
+                        <p>{this.state.sub_array["MONDAY"][1]}</p>
+                            <p>{this.state.prof_array["MONDAY"][1]}</p>
+                            <p>{this.state.room_array["MONDAY"][1]}</p>
                           
 
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
+                        <p>{this.state.sub_array["MONDAY"][2]}</p>
+                            <p>{this.state.prof_array["MONDAY"][2]}</p>
+                            <p>{this.state.room_array["MONDAY"][2]}</p>
+                           
+
+                            </div>
+                        </td>
+                        <td class="pa3">
+                        <div>
+                        <p>{this.state.sub_array["MONDAY"][3]}</p>
+                            <p>{this.state.prof_array["MONDAY"][3]}</p>
+                            <p>{this.state.room_array["MONDAY"][3]}</p>
+                          
+
+                            </div>
+                        </td>
+                        <td class="pa3">
+                        <div>
+                        <p>{this.state.sub_array["MONDAY"][4]}</p>
+                            <p>{this.state.prof_array["MONDAY"][4]}</p>
+                            <p>{this.state.room_array["MONDAY"][4]}</p>
                             
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                        
+                        <p>{this.state.sub_array["MONDAY"][5]}</p>
+                            <p>{this.state.prof_array["MONDAY"][5]}</p>
+                            <p>{this.state.room_array["MONDAY"][5]}</p>
 
                             </div>
                         </td>
@@ -146,36 +180,49 @@ class ClassTimeTable extends React.Component {
                     <td class="pa3 bg-white">Tuesday</td>
                     <td class="pa3">
                         <div>
+                        <p>{this.state.sub_array["TUESDAY"][0]}</p>
+                            <p>{this.state.prof_array["TUESDAY"][0]}</p>
+                            <p>{this.state.room_array["TUESDAY"][0]}</p>
+
+                            </div>
+                        </td>
+                        <td class="pa3">
+                        <div>
+                        <p>{this.state.sub_array["TUESDAY"][1]}</p>
+                            <p>{this.state.prof_array["TUESDAY"][1]}</p>
+                            <p>{this.state.room_array["TUESDAY"][1]}</p>
                             
 
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                            
+                        <p>{this.state.sub_array["TUESDAY"][2]}</p>
+                            <p>{this.state.prof_array["TUESDAY"][2]}</p>
+                            <p>{this.state.room_array["TUESDAY"][2]}</p>
 
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                           
+                        <p>{this.state.sub_array["TUESDAY"][3]}</p>
+                            <p>{this.state.prof_array["TUESDAY"][3]}</p>
+                            <p>{this.state.room_array["TUESDAY"][3]}</p>
 
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                           
-
+                        <p>{this.state.sub_array["TUESDAY"][4]}</p>
+                            <p>{this.state.prof_array["TUESDAY"][4]}</p>
+                            <p>{this.state.room_array["TUESDAY"][4]}</p>
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                           
-                            </div>
-                        </td>
-                        <td class="pa3">
-                        <div>
-                           
+                        <p>{this.state.sub_array["TUESDAY"][5]}</p>
+                            <p>{this.state.prof_array["TUESDAY"][5]}</p>
+                            <p>{this.state.room_array["TUESDAY"][5]}</p>
 
                             </div>
                         </td>
@@ -185,36 +232,48 @@ class ClassTimeTable extends React.Component {
                     <td class="pa3 bg-white">Wednesday</td>
                     <td class="pa3">
                         <div>
-                           
+                        <p>{this.state.sub_array["WEDNESDAY"][0]}</p>
+                            <p>{this.state.prof_array["WEDNESDAY"][0]}</p>
+                            <p>{this.state.room_array["WEDNESDAY"][0]}</p>
 
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                           
+                        <p>{this.state.sub_array["WEDNESDAY"][1]}</p>
+                            <p>{this.state.prof_array["WEDNESDAY"][1]}</p>
+                            <p>{this.state.room_array["WEDNESDAY"][1]}</p>
 
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                           
+                        <p>{this.state.sub_array["WEDNESDAY"][2]}</p>
+                            <p>{this.state.prof_array["WEDNESDAY"][2]}</p>
+                            <p>{this.state.room_array["WEDNESDAY"][2]}</p>
 
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                           
+                        <p>{this.state.sub_array["WEDNESDAY"][3]}</p>
+                            <p>{this.state.prof_array["WEDNESDAY"][3]}</p>
+                            <p>{this.state.room_array["WEDNESDAY"][3]}</p>
 
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                           
+                        <p>{this.state.sub_array["WEDNESDAY"][4]}</p>
+                            <p>{this.state.prof_array["WEDNESDAY"][4]}</p>
+                            <p>{this.state.room_array["WEDNESDAY"][4]}</p>
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                            
+                        <p>{this.state.sub_array["WEDNESDAY"][5]}</p>
+                            <p>{this.state.prof_array["WEDNESDAY"][5]}</p>
+                            <p>{this.state.room_array["WEDNESDAY"][5]}</p>
 
                             </div>
                         </td>
@@ -223,34 +282,47 @@ class ClassTimeTable extends React.Component {
                     <td class="pa3 bg-white">Thursday</td>
                     <td class="pa3">
                         <div>
+                        <p>{this.state.sub_array["THURSDAY"][0]}</p>
+                            <p>{this.state.prof_array["THURSDAY"][0]}</p>
+                            <p>{this.state.room_array["THURSDAY"][0]}</p>
                             
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                            
+                        <p>{this.state.sub_array["THURSDAY"][1]}</p>
+                            <p>{this.state.prof_array["THURSDAY"][1]}</p>
+                            <p>{this.state.room_array["THURSDAY"][1]}</p>
 
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                            
+                        <p>{this.state.sub_array["THURSDAY"][2]}</p>
+                            <p>{this.state.prof_array["THURSDAY"][2]}</p>
+                            <p>{this.state.room_array["THURSDAY"][2]}</p>
 
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                            
+                        <p>{this.state.sub_array["THURSDAY"][3]}</p>
+                            <p>{this.state.prof_array["THURSDAY"][3]}</p>
+                            <p>{this.state.room_array["THURSDAY"][3]}</p>
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                            
+                        <p>{this.state.sub_array["THURSDAY"][4]}</p>
+                            <p>{this.state.prof_array["THURSDAY"][4]}</p>
+                            <p>{this.state.room_array["THURSDAY"][4]}</p>
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                            
+                        <p>{this.state.sub_array["THURSDAY"][5]}</p>
+                            <p>{this.state.prof_array["THURSDAY"][5]}</p>
+                            <p>{this.state.room_array["THURSDAY"][5]}</p>
 
                             </div>
                         </td>
@@ -259,36 +331,47 @@ class ClassTimeTable extends React.Component {
                     <td class="pa3 bg-white">Friday</td>
                     <td class="pa3">
                         <div>
-                            
+                        <p>{this.state.sub_array["FRIDAY"][0]}</p>
+                            <p>{this.state.prof_array["FRIDAY"][0]}</p>
+                            <p>{this.state.room_array["FRIDAY"][0]}</p>
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                            
+                        <p>{this.state.sub_array["FRIDAY"][1]}</p>
+                            <p>{this.state.prof_array["FRIDAY"][1]}</p>
+                            <p>{this.state.room_array["FRIDAY"][1]}</p>
 
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                            
+                        <p>{this.state.sub_array["FRIDAY"][2]}</p>
+                            <p>{this.state.prof_array["FRIDAY"][2]}</p>
+                            <p>{this.state.room_array["FRIDAY"][2]}</p>
 
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                            
+                        <p>{this.state.sub_array["FRIDAY"][3]}</p>
+                            <p>{this.state.prof_array["FRIDAY"][3]}</p>
+                            <p>{this.state.room_array["FRIDAY"][3]}</p>
+                            </div>
+                        </td>
+                        <td class="pa3">
+                        <div>
+                        <p>{this.state.sub_array["FRIDAY"][4]}</p>
+                            <p>{this.state.prof_array["FRIDAY"][4]}</p>
+                            <p>{this.state.room_array["FRIDAY"][4]}</p>
 
                             </div>
                         </td>
                         <td class="pa3">
                         <div>
-                            
-
-                            </div>
-                        </td>
-                        <td class="pa3">
-                        <div>
-                            
+                        <p>{this.state.sub_array["FRIDAY"][5]}</p>
+                            <p>{this.state.prof_array["FRIDAY"][5]}</p>
+                            <p>{this.state.room_array["FRIDAY"][5]}</p>
 
                             </div>
                         </td>

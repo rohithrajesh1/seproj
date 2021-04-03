@@ -14,6 +14,7 @@ import Forgotpass from './components/Forgotpass/Forgotpass';
 
 import './App.css';
 import 'tachyons'; 
+import View from './components/View/View';
 const initialState={
   input:'',
   route:'home',
@@ -44,32 +45,34 @@ class App extends Component{
             ? 
               <Home onRouteChange={this.onRouteChange}/>
 
-            : 
-              route === 'register'
-              ? 
-                <Register onRouteChange={this.onRouteChange}/>
-              : route === 'signin'
-                ?
-                  <Signin onRouteChange={this.onRouteChange}/>
-                : route === 'aftersignin'
-                  ?
-                  <Aftersignin onRouteChange={this.onRouteChange}/>
-                  : route==='forgotpass'
+            : route==='view'
+              ?
+                <View onRouteChange={this.onRouteChange}/>
+                : route === 'register'
+                  ? 
+                    <Register onRouteChange={this.onRouteChange}/>
+                  : route === 'signin'
                     ?
-                    <Forgotpass onRouteChange={this.onRouteChange}/>
-                    :route==='settimetable'
+                      <Signin onRouteChange={this.onRouteChange}/>
+                    : route === 'aftersignin'
                       ?
-                      <Getdata choice={'restimetable'} onRouteChange={this.onRouteChange}/>
-                      :route==='dispcltimetable'
+                      <Aftersignin onRouteChange={this.onRouteChange}/>
+                      : route==='forgotpass'
                         ?
-                        <Getdata choice={'dispcltimetable'} onRouteChange={this.onRouteChange}/>
-                        :route==='disproomtimetable'
+                        <Forgotpass onRouteChange={this.onRouteChange}/>
+                        :route==='settimetable'
                           ?
-                          <Getdata choice={'disproomtimetable'} onRouteChange={this.onRouteChange}/>
-                          :route==='dispproftimetable'
+                          <Getdata choice={'restimetable'} onRouteChange={this.onRouteChange}/>
+                          :route==='dispcltimetable'
                             ?
-                            <Getdata choice={'dispproftimetable'} onRouteChange={this.onRouteChange}/>
-                            :<Getdata choice={'disproomtimetable'} onRouteChange={this.onRouteChange}/>
+                            <Getdata choice={'dispcltimetable'} onRouteChange={this.onRouteChange}/>
+                            :route==='disproomtimetable'
+                              ?
+                              <Getdata choice={'disproomtimetable'} onRouteChange={this.onRouteChange}/>
+                              :route==='dispproftimetable'
+                                ?
+                                <Getdata choice={'dispproftimetable'} onRouteChange={this.onRouteChange}/>
+                                :<Getdata choice={'disproomtimetable'} onRouteChange={this.onRouteChange}/>
 
 
                           
