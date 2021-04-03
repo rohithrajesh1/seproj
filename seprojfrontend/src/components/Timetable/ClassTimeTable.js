@@ -4,11 +4,19 @@ class ClassTimeTable extends React.Component {
 
     constructor(props){
         super(props);
-        this.state=[]
-        this.flag=false
+        this.state={
+            arr:[],
+            a:4,
+            flag:false
+
+        }
+        
+        
     }
     onGetClassTimeTable = () => {
         this.flag=true
+        this.setState({a:2});
+
     }
     render() {
 
@@ -16,12 +24,15 @@ class ClassTimeTable extends React.Component {
         //let classOptionItems = class_list.map((item) =>
           //      <option value={item.secnumber}>{item.secnumber}</option>
             //);
-        let class_list = this.props.state;
+        let class_list = this.props.state.array_class;
         let classOptionItems = class_list.map((item) =>
                 <option value={item.secnumber}>{item.secnumber}</option>
-            );    
+            );
+                
         return(
+            
             <div >
+                
                 
                 <h1 class="f3 f2-m f1-l fw6 black-90 mv3 b center" style={{marginTop:"2%",marginLeft:"3%"}}>
                     Check your class time table here:    
@@ -47,7 +58,7 @@ class ClassTimeTable extends React.Component {
 
                     />
                 </div>
-
+                
                 <div class="overflow-auto">
                 <table class="f6 w-100 mw8 center" cellspacing="0" style={{marginTop:'2%'}}>
                 <thead>
@@ -68,7 +79,7 @@ class ClassTimeTable extends React.Component {
                     <td class="pa3">
                         <div>
 
-
+                            {this.state.a}
                         </div>
                     </td>
                     <td class="pa3">

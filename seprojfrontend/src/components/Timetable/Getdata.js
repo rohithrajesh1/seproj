@@ -143,7 +143,7 @@ class Getdata extends React.Component {
                     :
                     choice==='dispcltimetable'
                     ?
-                    <ClassTimeTable state={this.state.array_class}/>
+                    <ClassTimeTable state={this.state}/>
                     :
                     choice==='dispproftimetable'
                     ?
