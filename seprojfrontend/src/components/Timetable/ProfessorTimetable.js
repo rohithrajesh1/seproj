@@ -1,30 +1,26 @@
 import React from 'react';
 
-class ClassTimeTable extends React.Component {
+class ProfessorTimetable extends React.Component {
 
     constructor(props){
         super(props);
         this.state={
-            sub_array:{
-                "MONDAY":[null,null,null,null,null,null]
-
-            },
-            prof_array:[],
-            room_array:[]
+            sub_array:[],
+            room_array:[],
+            class_array:[]
 
         }
-        
     }
-    onGetClassTimeTable = () => {
-        const secnumber=document.getElementById('chclass').value
-        if(!secnumber)
-            return alert("Choose a Class")
-        fetch('http://localhost:2500/getClassTimetable',{
+
+
+    onGetProfTimeTable = () => {
+        const email=document.getElementById('chprof').value
+        fetch('http://localhost:2500/getTeacherTimetable',{
             method: 'post',
             headers: {'Content-Type': 'application/json'},
             
             body: JSON.stringify({
-              secnumber:secnumber
+              email:email
             })
 
 
@@ -36,7 +32,7 @@ class ClassTimeTable extends React.Component {
                 
                 this.setState({
                     sub_array:resp.sub_array,
-                    prof_array:resp.prof_array,
+                    class_array:resp.class_array,
                     room_array:resp.room_array
                 })
                 console.log(this.state)
@@ -44,40 +40,41 @@ class ClassTimeTable extends React.Component {
             
             }
             else{
-                return alert("Failed getClasses")
+                return alert("Failed getFaculty")
             }
         })
+        
     }
-    render() {
 
+    render() {
         //let class_list = this.props.state.array_class;
         //let classOptionItems = class_list.map((item) =>
           //      <option value={item.secnumber}>{item.secnumber}</option>
             //);
-        let class_list = this.props.data;
-        let classOptionItems = class_list.map((item) =>
-                <option value={item.secnumber}>{item.secnumber}</option>
-            );    
+
+        let teacher_list = this.props.data;
+        let profOptionItems = teacher_list.map((item) =>
+                <option value={item.email}>{item.name} - {item.email}</option>
+            );      
         return(
-            <div >
-                
+            <div>
                 <h1 class="f3 f2-m f1-l fw6 black-90 mv3 b center" style={{marginTop:"2%",marginLeft:"3%"}}>
-                    Check your class time table here:    
+                    Choose professor name to view timetable 
                 </h1>
 
                 <article class="center mw5 mw6-ns br3 hidden ba b--black-10 mv4">
-                    <h1 class="f4 bg-near-white br3 br--top black-60 mv0 pv2 ph3">Choose the class here</h1>
+                    <h1 class="f4 bg-near-white br3 br--top black-60 mv0 pv2 ph3">Choose professor name from the list below</h1>
                     <div class="pa3 bt b--black-10">
-                        <select id="chclass" class="w-100 db h2 f6 bg-near-white ba b--sliver gray" name="" >
-                            <option value="">Choose the class</option>
-                            {classOptionItems}
+                        <select id="chprof" class="w-100 db h2 f6 bg-near-white ba b--sliver gray" name="" >
+                            <option value="">Choose professor name </option>
+                            {profOptionItems}
                         </select>
                     </div>
                 </article>
 
                 <div className="" style={{textAlign:'center'}}>
                     <input
-                        onClick={this.onGetClassTimeTable}
+                        onClick={this.onGetProfTimeTable}
                         className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
                         type="button"
                         id="reg"
@@ -105,8 +102,8 @@ class ClassTimeTable extends React.Component {
                     <td class="pa3 bg-white" >Monday</td>
                     <td class="pa3">
                         <div>
-                            {this.state.sub_array["MONDAY"][0]}
 
+                            
                         </div>
                     </td>
                     <td class="pa3">
@@ -312,4 +309,4 @@ class ClassTimeTable extends React.Component {
 
 
 
-export default ClassTimeTable;
+export default ProfessorTimetable;

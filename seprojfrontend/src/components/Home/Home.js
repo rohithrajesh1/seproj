@@ -58,7 +58,7 @@ class Home extends React.Component {
                         <div class="fl w-100 w-50-ns pa2 center">
                             <div class="ph3 mb4 ma4">
 
-                            <a class="f2 link dim br3 ba bw2 ph3 pv2 mb2 dib  dark-red "  href="#0">View Timetables or Room Occupancy Charts</a>
+                            <a class="f2 link dim br3 ba bw2 ph3 pv2 mb2 dib  dark-red "  href="#0" onClick={() => onRouteChange('dispcltimetable')}>View Timetables or Room Occupancy Charts</a>
 
                             </div>
                         </div>

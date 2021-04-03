@@ -1,5 +1,8 @@
 import React from 'react';
 import Signin from '../Signin/Signin';
+import ClassTimeTable from './ClassTimeTable';
+import OccupancyChart from './OccupancyChart';
+import ProfessorTimetable from './ProfessorTimetable';
 import Timetable from './Timetable';
 
 var percentArray = [];
@@ -110,7 +113,7 @@ class Getdata extends React.Component {
                 
                 this.setState({
                     array:this.state.array,
-                    array_class:this.state.array_room,
+                    array_class:this.state.array_class,
                     array_room:resp
                 })
                 console.log(this.state.array_room)
@@ -126,10 +129,36 @@ class Getdata extends React.Component {
 
 
 
+
     render() {
+        const choice=this.props.choice;
+        console.log(choice)
         return(
             //<Signin />
-            <Timetable state={this.state}/>
+            <div>
+                {
+                    choice==='restimetable'
+                    ?
+                    <Timetable state={this.state}/>
+                    :
+                    choice==='dispcltimetable'
+                    ?
+                    <ClassTimeTable data={this.state.array_class}/>
+                    :
+                    choice==='dispproftimetable'
+                    ?
+                    <ProfessorTimetable data={this.state.array}/>
+                    :
+                    choice==='disproomtimetable'
+                    ?
+                    <OccupancyChart data={this.state.array_room}/>
+                    :
+                    <OccupancyChart data={this.state.array_room}/>
+
+                }
+                
+            </div>
+            
             )
     
     }

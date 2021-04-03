@@ -134,6 +134,7 @@ const greedyAlgo=(req,res,db,sub_table,fac_table,room_size_table,room_table,clas
                     .then(data=>{
                         trx.commit
 
+                        
                         //res.json({
                          //   status:"Success"
                         //})
