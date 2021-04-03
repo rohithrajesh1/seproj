@@ -3,8 +3,80 @@ class Forgotpass extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+          password: "",
+          phonenumber:"",
+          confirmPassword:"",
           otpVerified:false
         }
+    }
+
+    onPhoneChange = (event) => {
+      this.setState({phonenumber: event.target.value})
+    }
+
+    onSignIn =() =>{
+
+    var phonenumber=document.getElementById("phone").value;
+    var password=document.getElementById("password").value;
+    var confpassword=document.getElementById("confpassword").value;
+    
+
+    if (!(password.valueOf()===confpassword.valueOf())){
+      //console.log(password);
+      return alert("Password mismatch")
+    }
+
+
+    
+
+    if(this.otpVerified === false){
+      return alert("OTP not yet verified")
+    }
+    console.log(password+phonenumber)
+    
+
+    fetch('http://localhost:2500/changePassword', {
+      method:'post',
+      headers: {
+        'Content-Type':'application/json'
+      
+    },
+      body: JSON.stringify({
+        //name:name,
+        //email:email,
+        password:password,
+        phonenumber:phonenumber
+      })
+    })
+      .then(response => response.json())
+      .then(resp=>{
+        if(resp.status){
+          if(resp.status==="Success"){
+            alert("Hello!")
+            this.props.onRouteChange('signin')
+
+          }
+          else{
+            alert(resp.status)
+          }
+    
+        }
+        else{
+          alert("Invalid Credentials")
+        }
+      })
+
+      
+
+
+    }
+
+    onPasswordChange = (event) => {
+      this.setState({password: event.target.value})
+    }
+  
+    onConfirmPasswordChange = (event) => {
+      this.setState({confpassword: event.target.value})
     }
     
     resetPass=()=>{
@@ -32,7 +104,7 @@ class Forgotpass extends React.Component {
     
       
     
-        fetch('http://localhost:2500/otp',{
+        fetch('http://localhost:2500/getotpindb',{
                 method: 'post',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
@@ -43,8 +115,15 @@ class Forgotpass extends React.Component {
             .then(resp => {
               console.log(resp)
                 if(resp.status){
-                  
+                  if(resp.status==="Success"){
                     alert("OTP sent");
+
+                  }
+                  else{
+                    alert("Phone number is wrong")
+                  }
+                  
+                   
     
                     //this.props.loadUser(user);
                 }
@@ -59,18 +138,23 @@ class Forgotpass extends React.Component {
       onClickVerify=() =>{
         var chotp= document.getElementById("chotp").value;
         var numbers_check = /^[0-9]+$/;
+        var phonenumber=document.getElementById("phone").value;
         if(!(chotp.match(numbers_check) )){
           return alert("OTP can only be numbers"+chotp)
         }
         if(chotp.length!=4){
           return alert("Re-enter OTP, OTP is 4 digits")
         }
+        if(!(phonenumber.match(numbers_check))){
+          return alert("Invalid phone number")
+        }
         
         fetch('http://localhost:2500/verifyotp',{
                 method: 'post',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
-                  chotp:chotp
+                  chotp:chotp,
+                  phonenumber:phonenumber
                 })
             })
             .then(response => response.json())
@@ -79,7 +163,9 @@ class Forgotpass extends React.Component {
                 if(resp.status){
                   if(resp.status==="Success"){
                     alert("OTP successfully verified");
-                    this.setState.otpVerified=true;
+                    this.setState({
+                      otpVerified:true
+                    })
 
                     this.resetPass();
     
@@ -87,15 +173,12 @@ class Forgotpass extends React.Component {
                   else{
                     alert("OTP mismatch");
                   }
-                  
-                    
-    
-                    //this.props.loadUser(user);
+                  //this.props.loadUser(user);
                 }
                 else{
                     alert("Didn't receive OTP try again")
                 }
-            })
+          })
     
         
       }
@@ -167,13 +250,13 @@ class Forgotpass extends React.Component {
                       <input
                       className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
                       type="password"
-                      name="password"
-                      id="password"
-                      onChange={this.onPasswordChange}
+                      name="confpassword"
+                      id="confpassword"
+                      onChange={this.onConfirmPasswordChange}
                       />
                   </div>
                   <input
-                      onClick={() => onRouteChange('signin')}
+                      onClick={this.onSignIn}
                       className="f6 link dim br3 ph3 pv2 mb2 dib white bg-dark-green b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
                       type="submit"
                       value="Proceed"
