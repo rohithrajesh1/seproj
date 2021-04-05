@@ -94,7 +94,7 @@ class Forgotpass extends React.Component {
           return alert("Invalid phone number")
       }
     
-      if(phonenumber.length!=10){
+      if(phonenumber.length!==10){
         return alert("Invalid phone number")
       }
     
@@ -142,7 +142,7 @@ class Forgotpass extends React.Component {
         if(!(chotp.match(numbers_check) )){
           return alert("OTP can only be numbers"+chotp)
         }
-        if(chotp.length!=4){
+        if(chotp.length!==4){
           return alert("Re-enter OTP, OTP is 4 digits")
         }
         if(!(phonenumber.match(numbers_check))){
@@ -183,7 +183,7 @@ class Forgotpass extends React.Component {
         
       }
     render() {
-      const { onRouteChange } = this.props;
+      //const { onRouteChange } = this.props;
       return (
           <article className="br3 ba b--black-10 mv4 w-100 mw6 shadow-5 center ">
               <main className=" pa4 black-80">

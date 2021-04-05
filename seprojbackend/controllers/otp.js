@@ -45,7 +45,7 @@ const handleotp=(req,res) =>{
     var message_temp="Here is your OTP : "+rndotp
 
     console.log(message_temp)
-    //sendSMSviaFast2SMS(message_temp,phonenumber)
+    sendSMSviaFast2SMS(message_temp,phonenumber)
     
 
     res.json({
@@ -65,7 +65,7 @@ const handleotp=(req,res) =>{
         return res.status(400).json("Invalid Input. Please enter again")
     }
 
-    db.select('email')
+    db.select('*')
     .from('teachers')
     .where('phonenumber','=',phonenumber)
     .then(data=>{
@@ -76,16 +76,17 @@ const handleotp=(req,res) =>{
   
           rndotp+=`${temp}`
   
-      }
+        }
   
         var message_temp="Here is your OTP : "+rndotp
     
         console.log(message_temp)
         //sendSMSviaFast2SMS(message_temp,phonenumber)
-        
+        console.log(data)
     
         res.json({
-            status:"Success"
+            status:"Success",
+            teacher:data[0]
     
         })
 
