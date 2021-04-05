@@ -16,6 +16,7 @@ class Home extends React.Component {
                 <div class="mw9 center ph3-ns">
                     <div class="cf ph2-ns">
                         <div class="fl w-100 w-33-ns pa2 ">
+                        
                         <img style={{paddingTop: '5px', marginTop:"10%", marginLeft:"4%"}} alt='pic1' src={pic1} width="450" height="250"/>
                             </div>
                         <div class="fl w-100 w-33-ns pa2">
@@ -65,6 +66,8 @@ class Home extends React.Component {
                     </div>
                 </div>
 
+                
+                
             </article>     
 
 

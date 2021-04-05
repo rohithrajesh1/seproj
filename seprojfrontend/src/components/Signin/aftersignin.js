@@ -40,12 +40,32 @@ class aftersignin extends React.Component {
                     <div class="fl w-100 w-50-ns pa2">
                     <div class="ph3 mb4 ma4">
 
-                <a class="f2 link dim br3 ba bw2 ph3 pv2 mb2 dib" id="reser" onClick={this.onClickReserve} style={{ marginLeft:"35%",marginRight:"0%"}}  href="#0" >Reservation</a>
+                <a class="f2 link dim br3 ba bw2 ph3 pv2 mb2 dib" id="reser" onClick={this.onClickReserve} style={{ marginLeft:"26%",marginRight:"0%"}}  href="#0" >Reservation</a>
+                <div id="reserops" className="hide" align="center">
+                    <input
+                        onClick={() => onRouteChange('settimetable')}
+                        className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f5 dib"
+                        type="submit"
+                        id="usingtt"
+                        value="Reserve using timetable"
+                        
+                        
+                    />
+                    <h3 >OR</h3>
+                    <input
+                        
+                        className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f5 dib"
+                        type="submit"
+                        id="usingtt"
+                        value="Reserve for a particular period"
+                        
+                    />
 
+                    </div>
             </div>
                     </div>
                     <div class="fl w-100 w-50-ns pa2 center">
-                        <div class="ph3 mb4 ma4" style={{ marginLeft:"20%",marginRight:"30%"}}>
+                        <div class="ph3 mb4 ma4" style={{ marginLeft:"20%",marginRight:"20%"}}>
 
                         <a class="f2 link dim br3 ba bw2 ph3 pv2 mb2 dib  "   href="#0">Cancellation</a>
 
@@ -55,27 +75,7 @@ class aftersignin extends React.Component {
                 </div>
             </div>
 
-            <div id="reserops" className="hide" >
-            <input
-                onClick={() => onRouteChange('settimetable')}
-                className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f5 dib"
-                type="submit"
-                id="usingtt"
-                value="Reserve using timetable"
-                style={{ marginLeft:"20.5%",marginRight:"0%"}}
-                
-              />
-              <h3 style={{ marginLeft:"28%",marginRight:"0%"}}>OR</h3>
-              <input
-                
-                className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f5 dib"
-                type="submit"
-                id="usingtt"
-                value="Reserve for a particular period"
-                style={{ marginLeft:"19%",marginRight:"0%"}}
-              />
-
-            </div>
+            
 
 
         </div>

@@ -19,6 +19,7 @@ class View extends React.Component {
                     </h1>
                 </div>    
                 <div className="br3 ba b--black-90 mw6 mv4 w-100-m w-100-l mw12 shadow-5 ma3 center pa9 b ">
+                    
                 <h3 class=" f4-m f3-l fw2 black mt0 lh-copy black fw9">
                     Which among the following do you want to access?
                 </h3>

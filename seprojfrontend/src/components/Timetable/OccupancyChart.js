@@ -34,6 +34,8 @@ class OccupancyChart extends React.Component {
     }    
     onGetRoomTimeTable = () => {
         const roomnumber=document.getElementById('chroom').value
+        if(!roomnumber)
+            return alert("Choose a room")
         fetch('http://localhost:2500/getRoomOccchart',{
             method: 'post',
             headers: {'Content-Type': 'application/json'},
