@@ -3,12 +3,13 @@ class Signin extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            otpVerified:false
+            otpVerified:false,
+            user:null
           }
     }    
     onSubmitSignIn =()=>{
         if(this.state.otpVerified){
-            alert("Hello!");
+            alert("Hello! "+this.state.user.name);
             return this.props.onRouteChange('aftersignin')
 
         }
@@ -26,6 +27,9 @@ class Signin extends React.Component {
             if(user.email){
                 alert("Hello! "+user.name);
                 this.props.onRouteChange('aftersignin')
+                this.setState({
+                    user:user
+                })
                 
                 console.log(user);
                 //this.props.loadUser(user);
@@ -73,7 +77,7 @@ class Signin extends React.Component {
     
       
     
-        fetch('http://localhost:2500/otp',{
+        fetch('http://localhost:2500/getotpindb',{
                 method: 'post',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
@@ -84,7 +88,9 @@ class Signin extends React.Component {
             .then(resp => {
               console.log(resp)
                 if(resp.status){
-                  
+                    this.setState({
+                        user:resp.teacher
+                    })
                     alert("OTP sent");
     
                     //this.props.loadUser(user);
@@ -121,8 +127,11 @@ class Signin extends React.Component {
                   if(resp.status==="Success"){
                     alert("OTP successfully verified");
                     this.setState({
-                        otpVerified:true
+                        otpVerified:true,
+                        
                     })
+                    this.onSubmitSignIn()
+
     
                   }
                   else{

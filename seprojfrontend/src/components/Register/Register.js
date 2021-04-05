@@ -165,7 +165,7 @@ class Register extends React.Component {
       .then(response => response.json())
       .then(user=>{
         if(user.email){
-          alert("Hello! "+user.name)
+          alert("Successfully Registered")
           this.props.onRouteChange('signin')
 
           

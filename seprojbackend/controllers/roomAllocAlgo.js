@@ -60,9 +60,9 @@ const greedyAlgo=(req,res,db,sub_table,fac_table,room_size_table,room_table,clas
     //console.log("cc",class_strength)
     var position=0;
     while (class_strength_no>parseInt(room_size_table[position].roomsize)){
-        console.log(room_size_table[position].roomsize)
+        //console.log(room_size_table[position].roomsize)
         position+=1;
-        console.log("pos",position)
+        //console.log("pos",position)
         
     }
     var flag=false
@@ -71,20 +71,20 @@ const greedyAlgo=(req,res,db,sub_table,fac_table,room_size_table,room_table,clas
 
         for(var i=1;i<=5;i++){
             for(var j=1;j<=6;j++){
-                console.log("cc",i+" "+j)
+                //console.log("cc",i+" "+j)
                 if(fac_table[week_full[i]][j-1]=="Free")
                     continue;
                 var temp=room_size_table[position].roomnumber
-                console.log(temp)
+                //console.log(temp)
                 var new_pos=serach_room(room_table,temp,week_full[i],`${j}`)
-                console.log("np",+new_pos)
+                //console.log("np",+new_pos)
                 //console.log(room_table)
                 while((new_pos!=-1)&&(room_table[new_pos].secnumber!=null)){
                     position+=1
                     temp=room_size_table[position].roomnumber
                     //console.log("chh"+week_full[i]+`${j}`)
                     new_pos=serach_room(room_table,temp,week_full[i],`${j}`)
-                    console.log("np",+new_pos)
+                    //console.log("np",+new_pos)
                 }
                 if(new_pos==-1){
                     flag=true

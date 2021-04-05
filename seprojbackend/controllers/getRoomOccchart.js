@@ -12,18 +12,18 @@ const handleGetRoomOccchart = (req,res,db)=>{
         "FRIDAY":["Free","Free","Free","Free","Free","Free"]
     }
     var prof_array={
-        "MONDAY":["Free","Free","Free","Free","Free","Free"],
-        "TUESDAY":["Free","Free","Free","Free","Free","Free"],
-        "WEDNESDAY":["Free","Free","Free","Free","Free","Free"],
-        "THURSDAY":["Free","Free","Free","Free","Free","Free"],
-        "FRIDAY":["Free","Free","Free","Free","Free","Free"]
+        "MONDAY":[null,null,null,null,null,null],
+        "TUESDAY":[null,null,null,null,null,null],
+        "WEDNESDAY":[null,null,null,null,null,null],
+        "THURSDAY":[null,null,null,null,null,null],
+        "FRIDAY":[null,null,null,null,null,null]
     }
     var class_array={
-        "MONDAY":["Free","Free","Free","Free","Free","Free"],
-        "TUESDAY":["Free","Free","Free","Free","Free","Free"],
-        "WEDNESDAY":["Free","Free","Free","Free","Free","Free"],
-        "THURSDAY":["Free","Free","Free","Free","Free","Free"],
-        "FRIDAY":["Free","Free","Free","Free","Free","Free"]
+        "MONDAY":[null,null,null,null,null,null],
+        "TUESDAY":[null,null,null,null,null,null],
+        "WEDNESDAY":[null,null,null,null,null,null],
+        "THURSDAY":[null,null,null,null,null,null],
+        "FRIDAY":[null,null,null,null,null,null]
     }
     var prof_ref={}
     db.select('email','name')

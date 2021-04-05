@@ -105,13 +105,13 @@ class OccupancyChart extends React.Component {
                 <table class="f6 w-100 mw8 center" cellspacing="0" style={{marginTop:'2%',marginBottom:'2%'}}>
                 <thead>
                     <tr class="stripe-dark">
-                    <th class="fw6 tl pa3 bg-white">Day</th>
-                    <th class="fw6 tl pa3 bg-white">Period 1</th>
-                    <th class="fw6 tl pa3 bg-white">Period 2</th>
-                    <th class="fw6 tl pa3 bg-white">Period 3</th>
-                    <th class="fw6 tl pa3 bg-white">Period 4</th>
-                    <th class="fw6 tl pa3 bg-white">Period 5</th>
-                    <th class="fw6 tl pa3 bg-white">Period 6</th>
+                    <th class="fw6 tl pa3 bg-white" style={{textAlign:'center'}}>Day</th>
+                    <th class="fw6 tl pa3 bg-white" style={{textAlign:'center'}}>Period 1</th>
+                    <th class="fw6 tl pa3 bg-white" style={{textAlign:'center'}}>Period 2</th>
+                    <th class="fw6 tl pa3 bg-white" style={{textAlign:'center'}}>Period 3</th>
+                    <th class="fw6 tl pa3 bg-white" style={{textAlign:'center'}}>Period 4</th>
+                    <th class="fw6 tl pa3 bg-white" style={{textAlign:'center'}}>Period 5</th>
+                    <th class="fw6 tl pa3 bg-white" style={{textAlign:'center'}}>Period 6</th>
 
                     </tr>
                 </thead>
@@ -119,7 +119,7 @@ class OccupancyChart extends React.Component {
                     <tr class="stripe-dark">
                     <td class="pa3 bg-white" >Monday</td>
                     <td class="pa3">
-                        <div>
+                        <div align="center">
                             <p>{this.state.class_array["MONDAY"][0]}</p>
                             <p>{this.state.sub_array["MONDAY"][0]}</p>
                             <p>{this.state.prof_array["MONDAY"][0]}</p>
@@ -129,7 +129,7 @@ class OccupancyChart extends React.Component {
                         </div>
                     </td>
                     <td class="pa3">
-                        <div>
+                        <div align="center">
                         <p>{this.state.class_array["MONDAY"][1]}</p>
                             <p>{this.state.sub_array["MONDAY"][1]}</p>
                             <p>{this.state.prof_array["MONDAY"][1]}</p>
@@ -139,7 +139,7 @@ class OccupancyChart extends React.Component {
                             </div>
                         </td>
                         <td class="pa3">
-                        <div>
+                        <div align="center">
                         <p>{this.state.class_array["MONDAY"][2]}</p>
                             <p>{this.state.sub_array["MONDAY"][2]}</p>
                             <p>{this.state.prof_array["MONDAY"][2]}</p>
@@ -149,7 +149,7 @@ class OccupancyChart extends React.Component {
                             </div>
                         </td>
                         <td class="pa3">
-                        <div>
+                        <div align="center">
                         <p>{this.state.class_array["MONDAY"][3]}</p>
                             <p>{this.state.sub_array["MONDAY"][3]}</p>
                             <p>{this.state.prof_array["MONDAY"][3]}</p>
@@ -159,7 +159,7 @@ class OccupancyChart extends React.Component {
                             </div>
                         </td>
                         <td class="pa3">
-                        <div>
+                        <div align="center">
                         <p>{this.state.class_array["MONDAY"][4]}</p>
                             <p>{this.state.sub_array["MONDAY"][4]}</p>
                             <p>{this.state.prof_array["MONDAY"][4]}</p>
@@ -168,7 +168,7 @@ class OccupancyChart extends React.Component {
                             </div>
                         </td>
                         <td class="pa3">
-                        <div>
+                        <div align="center">
                         <p>{this.state.class_array["MONDAY"][5]}</p>
                             <p>{this.state.sub_array["MONDAY"][5]}</p>
                             <p>{this.state.prof_array["MONDAY"][5]}</p>
@@ -181,7 +181,7 @@ class OccupancyChart extends React.Component {
                     <tr class="stripe-dark">
                     <td class="pa3 bg-white">Tuesday</td>
                     <td class="pa3">
-                        <div>
+                        <div align="center">
                         <p>{this.state.class_array["TUESDAY"][0]}</p>
                             <p>{this.state.sub_array["TUESDAY"][0]}</p>
                             <p>{this.state.prof_array["TUESDAY"][0]}</p>
@@ -190,7 +190,7 @@ class OccupancyChart extends React.Component {
                             </div>
                         </td>
                         <td class="pa3">
-                        <div>
+                        <div align="center">
                         <p>{this.state.class_array["TUESDAY"][1]}</p>
                             <p>{this.state.sub_array["TUESDAY"][1]}</p>
                             <p>{this.state.prof_array["TUESDAY"][1]}</p>
@@ -199,7 +199,7 @@ class OccupancyChart extends React.Component {
                             </div>
                         </td>
                         <td class="pa3">
-                        <div>
+                        <div align="center">
                         <p>{this.state.class_array["TUESDAY"][2]}</p>
                             <p>{this.state.sub_array["TUESDAY"][2]}</p>
                             <p>{this.state.prof_array["TUESDAY"][2]}</p>
@@ -208,7 +208,7 @@ class OccupancyChart extends React.Component {
                             </div>
                         </td>
                         <td class="pa3">
-                        <div>
+                        <div align="center">
                         <p>{this.state.class_array["TUESDAY"][3]}</p>
                             <p>{this.state.sub_array["TUESDAY"][3]}</p>
                             <p>{this.state.prof_array["TUESDAY"][3]}</p>
@@ -217,7 +217,7 @@ class OccupancyChart extends React.Component {
                             </div>
                         </td>
                         <td class="pa3">
-                        <div>
+                        <div align="center">
                         <p>{this.state.class_array["TUESDAY"][4]}</p>
                             <p>{this.state.sub_array["TUESDAY"][4]}</p>
                             <p>{this.state.prof_array["TUESDAY"][4]}</p>
@@ -225,7 +225,7 @@ class OccupancyChart extends React.Component {
                             </div>
                         </td>
                         <td class="pa3">
-                        <div>
+                        <div align="center">
                         <p>{this.state.class_array["TUESDAY"][5]}</p>
                             <p>{this.state.sub_array["TUESDAY"][5]}</p>
                             <p>{this.state.prof_array["TUESDAY"][5]}</p>
@@ -238,7 +238,7 @@ class OccupancyChart extends React.Component {
                     <tr class="stripe-dark">
                     <td class="pa3 bg-white">Wednesday</td>
                     <td class="pa3">
-                        <div>
+                        <div align="center">
                         <p>{this.state.class_array["WEDNESDAY"][0]}</p>
                             <p>{this.state.sub_array["WEDNESDAY"][0]}</p>
                             <p>{this.state.prof_array["WEDNESDAY"][0]}</p>
@@ -248,7 +248,7 @@ class OccupancyChart extends React.Component {
                             </div>
                         </td>
                         <td class="pa3">
-                        <div>
+                        <div align="center">
                         <p>{this.state.class_array["WEDNESDAY"][1]}</p>
                             <p>{this.state.sub_array["WEDNESDAY"][1]}</p>
                             <p>{this.state.prof_array["WEDNESDAY"][1]}</p>
@@ -256,7 +256,7 @@ class OccupancyChart extends React.Component {
                             </div>
                         </td>
                         <td class="pa3">
-                        <div>
+                        <div align="center">
                         <p>{this.state.class_array["WEDNESDAY"][2]}</p>
                             <p>{this.state.sub_array["WEDNESDAY"][2]}</p>
                             <p>{this.state.prof_array["WEDNESDAY"][2]}</p>
@@ -264,7 +264,7 @@ class OccupancyChart extends React.Component {
                             </div>
                         </td>
                         <td class="pa3">
-                        <div>
+                        <div align="center">
                         <p>{this.state.class_array["WEDNESDAY"][3]}</p>
                             <p>{this.state.sub_array["WEDNESDAY"][3]}</p>
                             <p>{this.state.prof_array["WEDNESDAY"][3]}</p>
@@ -273,7 +273,7 @@ class OccupancyChart extends React.Component {
                             </div>
                         </td>
                         <td class="pa3">
-                        <div>
+                        <div align="center">
                         <p>{this.state.class_array["WEDNESDAY"][4]}</p>
                             <p>{this.state.sub_array["WEDNESDAY"][4]}</p>
                             <p>{this.state.prof_array["WEDNESDAY"][4]}</p>
@@ -281,7 +281,7 @@ class OccupancyChart extends React.Component {
                             </div>
                         </td>
                         <td class="pa3">
-                        <div>
+                        <div align="center">
                         <p>{this.state.class_array["WEDNESDAY"][5]}</p>
                             <p>{this.state.sub_array["WEDNESDAY"][5]}</p>
                             <p>{this.state.prof_array["WEDNESDAY"][5]}</p>
@@ -293,7 +293,7 @@ class OccupancyChart extends React.Component {
                     <tr class="stripe-dark">
                     <td class="pa3 bg-white">Thursday</td>
                     <td class="pa3">
-                        <div>
+                        <div align="center">
                         <p>{this.state.class_array["THURSDAY"][0]}</p>
                             <p>{this.state.sub_array["THURSDAY"][0]}</p>
                             <p>{this.state.prof_array["THURSDAY"][0]}</p>
@@ -301,7 +301,7 @@ class OccupancyChart extends React.Component {
                             </div>
                         </td>
                         <td class="pa3">
-                        <div>
+                        <div align="center">
                         <p>{this.state.class_array["THURSDAY"][1]}</p>
                             <p>{this.state.sub_array["THURSDAY"][1]}</p>
                             <p>{this.state.prof_array["THURSDAY"][1]}</p>
@@ -309,7 +309,7 @@ class OccupancyChart extends React.Component {
                             </div>
                         </td>
                         <td class="pa3">
-                        <div>
+                        <div align="center">
                         <p>{this.state.class_array["THURSDAY"][2]}</p>
                             <p>{this.state.sub_array["THURSDAY"][2]}</p>
                             <p>{this.state.prof_array["THURSDAY"][2]}</p>
@@ -317,21 +317,21 @@ class OccupancyChart extends React.Component {
                             </div>
                         </td>
                         <td class="pa3">
-                        <div>
+                        <div align="center">
                         <p>{this.state.class_array["THURSDAY"][3]}</p>
                             <p>{this.state.sub_array["THURSDAY"][3]}</p>
                             <p>{this.state.prof_array["THURSDAY"][3]}</p>
                             </div>
                         </td>
                         <td class="pa3">
-                        <div>
+                        <div align="center">
                         <p>{this.state.class_array["THURSDAY"][4]}</p>
                             <p>{this.state.sub_array["THURSDAY"][4]}</p>
                             <p>{this.state.prof_array["THURSDAY"][4]}</p>
                             </div>
                         </td>
                         <td class="pa3">
-                        <div>
+                        <div align="center">
                         <p>{this.state.class_array["THURSDAY"][5]}</p>
                             <p>{this.state.sub_array["THURSDAY"][5]}</p>
                             <p>{this.state.prof_array["THURSDAY"][5]}</p>
@@ -342,7 +342,7 @@ class OccupancyChart extends React.Component {
                     <tr class="stripe-dark">
                     <td class="pa3 bg-white">Friday</td>
                     <td class="pa3">
-                        <div>
+                        <div align="center">
                         <p>{this.state.class_array["FRIDAY"][0]}</p>
                             <p>{this.state.sub_array["FRIDAY"][0]}</p>
                             <p>{this.state.prof_array["FRIDAY"][0]}</p>
@@ -350,7 +350,7 @@ class OccupancyChart extends React.Component {
                             </div>
                         </td>
                         <td class="pa3">
-                        <div>
+                        <div align="center">
                         <p>{this.state.class_array["FRIDAY"][1]}</p>
                             <p>{this.state.sub_array["FRIDAY"][1]}</p>
                             <p>{this.state.prof_array["FRIDAY"][1]}</p>
@@ -358,7 +358,7 @@ class OccupancyChart extends React.Component {
                             </div>
                         </td>
                         <td class="pa3">
-                        <div>
+                        <div align="center">
                         <p>{this.state.class_array["FRIDAY"][2]}</p>
                             <p>{this.state.sub_array["FRIDAY"][2]}</p>
                             <p>{this.state.prof_array["FRIDAY"][2]}</p>
@@ -366,7 +366,7 @@ class OccupancyChart extends React.Component {
                             </div>
                         </td>
                         <td class="pa3">
-                        <div>
+                        <div align="center">
                         <p>{this.state.class_array["FRIDAY"][3]}</p>
                             <p>{this.state.sub_array["FRIDAY"][3]}</p>
                             <p>{this.state.prof_array["FRIDAY"][3]}</p>
@@ -374,7 +374,7 @@ class OccupancyChart extends React.Component {
                             </div>
                         </td>
                         <td class="pa3">
-                        <div>
+                        <div align="center">
                         <p>{this.state.class_array["FRIDAY"][4]}</p>
                             <p>{this.state.sub_array["FRIDAY"][4]}</p>
                             <p>{this.state.prof_array["FRIDAY"][4]}</p>
@@ -382,7 +382,7 @@ class OccupancyChart extends React.Component {
                             </div>
                         </td>
                         <td class="pa3">
-                        <div>
+                        <div align="center">
                         <p>{this.state.class_array["FRIDAY"][5]}</p>
                             <p>{this.state.sub_array["FRIDAY"][5]}</p>
                             <p>{this.state.prof_array["FRIDAY"][5]}</p>
