@@ -306,7 +306,7 @@ class ProfessorTimetable extends React.Component {
                     <td class="pa3 bg-white">Thursday</td>
                     <td class="pa3">
 <<<<<<< HEAD
-                    <div align="center">
+                        <div align="center">
 =======
                         <div align="center">
 >>>>>>> e19c57e07fb10976acec7cef7d405e8fde8cb372
