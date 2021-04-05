@@ -1,6 +1,5 @@
 import React from 'react';
 
-var percentArray = [];
 
 
 //for (var l=0;l<20;l++){
@@ -97,7 +96,7 @@ class Timetable extends React.Component {
 
             }
         }
-        if(cnt==30){
+        if(cnt===30){
             return alert("empty table")
         }
 

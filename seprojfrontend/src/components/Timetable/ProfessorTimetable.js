@@ -111,15 +111,6 @@ class ProfessorTimetable extends React.Component {
                 <table class="f6 w-100 mw8 center" cellspacing="0" style={{marginTop:'2%',marginBottom:'2%'}}>
                 <thead>
                     <tr class="stripe-dark">
-<<<<<<< HEAD
-                    <th class="fw6 tl pa3 bg-white" >Day</th>
-                    <th class="fw6 tl pa3 bg-white" style={{textAlign: "center"}}>Period 1</th>
-                    <th class="fw6 tl pa3 bg-white" style={{textAlign: "center"}}>Period 2</th>
-                    <th class="fw6 tl pa3 bg-white" style={{textAlign: "center"}}>Period 3</th>
-                    <th class="fw6 tl pa3 bg-white" style={{textAlign: "center"}}>Period 4</th>
-                    <th class="fw6 tl pa3 bg-white" style={{textAlign: "center"}}>Period 5</th>
-                    <th class="fw6 tl pa3 bg-white" style={{textAlign: "center"}}>Period 6</th>
-=======
                     <th class="fw6 tl pa3 bg-white" style={{textAlign:'center'}}>Day</th>
                     <th class="fw6 tl pa3 bg-white" style={{textAlign:'center'}}>Period 1</th>
                     <th class="fw6 tl pa3 bg-white" style={{textAlign:'center'}}>Period 2</th>
@@ -127,7 +118,6 @@ class ProfessorTimetable extends React.Component {
                     <th class="fw6 tl pa3 bg-white" style={{textAlign:'center'}}>Period 4</th>
                     <th class="fw6 tl pa3 bg-white" style={{textAlign:'center'}}>Period 5</th>
                     <th class="fw6 tl pa3 bg-white" style={{textAlign:'center'}}>Period 6</th>
->>>>>>> e19c57e07fb10976acec7cef7d405e8fde8cb372
 
                     </tr>
                 </thead>
@@ -144,11 +134,7 @@ class ProfessorTimetable extends React.Component {
                         </div>
                     </td>
                     <td class="pa3">
-<<<<<<< HEAD
-                    <div align="center">
-=======
                         <div align="center">
->>>>>>> e19c57e07fb10976acec7cef7d405e8fde8cb372
                         <p>{this.state.class_array["MONDAY"][1]}</p>
                             <p>{this.state.sub_array["MONDAY"][1]}</p>
                             <p>{this.state.room_array["MONDAY"][1]}</p>
@@ -194,11 +180,7 @@ class ProfessorTimetable extends React.Component {
                     <tr class="stripe-dark">
                     <td class="pa3 bg-white">Tuesday</td>
                     <td class="pa3">
-<<<<<<< HEAD
-                    <div align="center">
-=======
                         <div align="center">
->>>>>>> e19c57e07fb10976acec7cef7d405e8fde8cb372
                         <p>{this.state.class_array["TUESDAY"][0]}</p>
                             <p>{this.state.sub_array["TUESDAY"][0]}</p>
                             <p>{this.state.room_array["TUESDAY"][0]}</p>
@@ -250,11 +232,7 @@ class ProfessorTimetable extends React.Component {
                     <tr class="stripe-dark">
                     <td class="pa3 bg-white">Wednesday</td>
                     <td class="pa3">
-<<<<<<< HEAD
-                    <div align="center">
-=======
                         <div align="center">
->>>>>>> e19c57e07fb10976acec7cef7d405e8fde8cb372
                         <p>{this.state.class_array["WEDNESDAY"][0]}</p>
                             <p>{this.state.sub_array["WEDNESDAY"][0]}</p>
                             <p>{this.state.room_array["WEDNESDAY"][0]}</p>
@@ -305,11 +283,7 @@ class ProfessorTimetable extends React.Component {
                     <tr class="stripe-dark">
                     <td class="pa3 bg-white">Thursday</td>
                     <td class="pa3">
-<<<<<<< HEAD
                         <div align="center">
-=======
-                        <div align="center">
->>>>>>> e19c57e07fb10976acec7cef7d405e8fde8cb372
                         <p>{this.state.class_array["THURSDAY"][0]}</p>
                             <p>{this.state.sub_array["THURSDAY"][0]}</p>
                             <p>{this.state.room_array["THURSDAY"][0]}</p>
@@ -358,11 +332,7 @@ class ProfessorTimetable extends React.Component {
                     <tr class="stripe-dark">
                     <td class="pa3 bg-white">Friday</td>
                     <td class="pa3">
-<<<<<<< HEAD
-                    <div align="center">
-=======
                         <div align="center">
->>>>>>> e19c57e07fb10976acec7cef7d405e8fde8cb372
                         <p>{this.state.class_array["FRIDAY"][0]}</p>
                             <p>{this.state.sub_array["FRIDAY"][0]}</p>
                             <p>{this.state.room_array["FRIDAY"][0]}</p>
@@ -412,6 +382,10 @@ class ProfessorTimetable extends React.Component {
                 </tbody>
                 </table>
             </div>
+
+                <h4  style={{marginTop:"2%",marginLeft:"3%"}}>
+                    Note: To print the table choose the print option from your browser and choose paper size as A2 or tabloid.
+                </h4>
 
 
             </div>

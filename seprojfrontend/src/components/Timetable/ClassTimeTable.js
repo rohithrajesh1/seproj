@@ -379,7 +379,9 @@ class ClassTimeTable extends React.Component {
                 </tbody>
                 </table>
             </div>
-
+                <h4  style={{marginTop:"2%",marginLeft:"3%"}}>
+                    Note: To print the table choose the print option from your browser and choose paper size as A2 or tabloid.
+                </h4>
 
             </div>
 
