@@ -2,9 +2,18 @@ import React from 'react';
 class Signin extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            otpVerified:false
+          }
     }    
     onSubmitSignIn =()=>{
-        fetch('http://localhost:2500/login',{
+        if(this.state.otpVerified){
+            alert("Hello!");
+            return this.props.onRouteChange('aftersignin')
+
+        }
+        else{
+            fetch('http://localhost:2500/login',{
             method: 'post',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
@@ -25,6 +34,9 @@ class Signin extends React.Component {
                 alert("Invalid credentials")
             }
         })
+
+        }
+        
 
     }
     disppass=()=>{
@@ -108,7 +120,9 @@ class Signin extends React.Component {
                 if(resp.status){
                   if(resp.status==="Success"){
                     alert("OTP successfully verified");
-                    this.setState.otpVerified=true;
+                    this.setState({
+                        otpVerified:true
+                    })
     
                   }
                   else{
