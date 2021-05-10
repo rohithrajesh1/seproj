@@ -1,7 +1,9 @@
+var copyDb=require('./copyDb');
 const handleRoomAllocAlgo=(req,res,sub_table,fac_table,db,secnumber) => {
     db.select('*')
     .from('classroom')
     .then(room_size_table=>{
+        
         db.select('*')
         .from('room_occ_chart')
         .then(room_table =>{
@@ -10,7 +12,8 @@ const handleRoomAllocAlgo=(req,res,sub_table,fac_table,db,secnumber) => {
             .where('secnumber','=',secnumber)
             .then(class_strength=>{
                 //console.log("cc",class_strength)
-                return greedyAlgo(req,res,db,sub_table,fac_table,room_size_table,room_table,class_strength[0].nostud,secnumber)
+                greedyAlgo(req,res,db,sub_table,fac_table,room_size_table,room_table,class_strength[0].nostud,secnumber)
+                
 
             })
             
@@ -110,7 +113,7 @@ const greedyAlgo=(req,res,db,sub_table,fac_table,room_size_table,room_table,clas
                 .update({
                     roomnumber:room_table[new_pos].roomnumber
                 })
-
+                .transacting(trx)
                 qs.push(q2)
 
                 var q3=db('professor_timetable')
@@ -120,8 +123,51 @@ const greedyAlgo=(req,res,db,sub_table,fac_table,room_size_table,room_table,clas
                 .update({
                     roomnumber:room_table[new_pos].roomnumber
                 })
-
+                .transacting(trx)
                 qs.push(q3)
+
+                
+
+                var q4=db('room_occ_chart_temp')
+                .where('roomnumber','=',room_table[new_pos].roomnumber)
+                .andWhere('day','=',week_full[i])
+                .andWhere('period','=',`${j}`)
+                .update({
+                    email: fac_table[week_full[i]][j-1],
+                    subject: sub_table[week_full[i]][j-1],
+                    secnumber: secnumber
+                })
+                .transacting(trx)
+
+                qs.push(q4)
+
+                var q5=db('class_timetable_temp')
+                .where('secnumber','=',secnumber)
+                .andWhere('day','=',week_full[i])
+                .andWhere('period','=',`${j}`)
+                .update({
+                    email: fac_table[week_full[i]][j-1],
+                    subject: sub_table[week_full[i]][j-1],
+                    roomnumber:room_table[new_pos].roomnumber
+                })
+                .transacting(trx)
+                qs.push(q5)
+
+                var q6=db('professor_timetable_temp')
+                .where('email','=',fac_table[week_full[i]][j-1])
+                .andWhere('day','=',week_full[i])
+                .andWhere('period','=',`${j}`)
+                .update({
+                    secnumber: secnumber,
+                    subject: sub_table[week_full[i]][j-1],
+                    roomnumber:room_table[new_pos].roomnumber
+                })
+                .transacting(trx)
+                qs.push(q6)
+
+
+
+
 
             }
             if(flag){
@@ -138,8 +184,11 @@ const greedyAlgo=(req,res,db,sub_table,fac_table,room_size_table,room_table,clas
                         //res.json({
                          //   status:"Success"
                         //})
-                        if(!(flag))
+                        if(!(flag)){
                             console.log("Success roomoccupancy chart")
+                            //copyDb.onCopyDb(db)
+                        }
+                            
                         //roomAllocAlgo.handleRoomAllocAlgo(req,res,sub_table,fac_table,db)
                         
                     }) // We try to execute all of them

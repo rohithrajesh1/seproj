@@ -45,7 +45,7 @@ const onStoreTimetable =(req,res,db) => {
                                 if(!((fl[0].secnumber==secnumber)||(fl[0].secnumber==null))){
                                     mrk=true
                                 }
-                                console.log("mmmm"+mrk)
+                                //console.log("mmmm"+mrk)
     
                                 
                                 
@@ -129,7 +129,7 @@ const onStoreTimetable =(req,res,db) => {
                 trx.commit
                 //console.log(data1)
                 //console.log("Success clearTimetable")
-                console.log("fff"+mrk)
+                //console.log("fff"+mrk)
 
                 if(mrk){
                     return res.status(400).json("Professor Timetable is clashing. Check before uploading")

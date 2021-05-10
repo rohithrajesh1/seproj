@@ -56,6 +56,19 @@ const handleRegister = (req,res,db) =>{
                 .transacting(trx)
 
                 queries.push(q2)
+                const q3= db.insert({
+                    email:email,
+                    day:week_full[day],
+                    period:`${per}`,
+                    secnumber:null,
+                    roomnumber:null,
+                    subject:null,
+
+                })
+                .into('professor_timetable_temp')
+                .transacting(trx)
+
+                queries.push(q3)
 
             }
 
