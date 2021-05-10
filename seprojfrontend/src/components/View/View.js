@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 
 class View extends React.Component {
@@ -27,41 +28,47 @@ class View extends React.Component {
                 </div>
 
                 <div className="" style={{textAlign:'center',marginTop:"6%"}}>
+                    <Link to="dispcltimetable">
                     <input
-                        onClick={() => onRouteChange('dispcltimetable')}
                         className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f2 blue dib"
                         type="button"
                         id="clt"
                         value="  Get class timetable  "
 
                     />
+                    </Link>
                 </div>
 
                 <div class="mw9 center ph3-ns">
                 <div class="cf ph2-ns">
                     <div class="fl w-100 w-50-ns pa2">
                     <div className="" style={{textAlign:'center',marginTop:"5%"}}>
-                    <input
-                        onClick={() => onRouteChange('dispproftimetable')}
-                        className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f2 blue dib"
-                        type="button"
-                        id="pt"
-                        value="  Get professor timetable  "
+                    <Link to="dispproftimetable">
+                        <input
+                            
+                            className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f2 blue dib"
+                            type="button"
+                            id="pt"
+                            value="  Get professor timetable  "
 
-                        />
+                            />
+                    </Link>        
                     </div>
                     </div>
                     <div class="fl w-100 w-50-ns pa2">
                     <div className="" style={{textAlign:'center',marginTop:"5%"}}>
+                    <Link to="disproomtimetable"> 
                     <input
-                        onClick={() => onRouteChange('disproomtimetable')}
+                
                         className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f2 blue dib"
                         type="button"
                         id="roc"
                         value="Get room occupancy chart"
 
                         />
+                    </Link>   
                     </div>
+                    
                     </div>
                 </div>
                 </div>

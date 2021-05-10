@@ -4,7 +4,12 @@ import ClassTimeTable from './ClassTimeTable';
 import OccupancyChart from './OccupancyChart';
 import ProfessorTimetable from './ProfessorTimetable';
 import Timetable from './Timetable';
-
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 var percentArray = [];
 
 
@@ -13,6 +18,8 @@ var percentArray = [];
 //}
 
 //var flg=false;
+
+
 
 class Getdata extends React.Component {
     constructor(){
@@ -135,29 +142,36 @@ class Getdata extends React.Component {
         console.log(choice)
         return(
             //<Signin />
-            <div>
-                {
-                    choice==='restimetable'
-                    ?
-                    <Timetable state={this.state}/>
-                    :
-                    choice==='dispcltimetable'
-                    ?
-                    <ClassTimeTable data={this.state.array_class}/>
-                    :
-                    choice==='dispproftimetable'
-                    ?
-                    <ProfessorTimetable data={this.state.array}/>
-                    :
-                    choice==='disproomtimetable'
-                    ?
-                    <OccupancyChart data={this.state.array_room}/>
-                    :
-                    <OccupancyChart data={this.state.array_room}/>
+            <Router>
+                <div>
+                <Route path="/settimetable"><Timetable state={this.state}/></Route>
+                <Route path="/dispcltimetable"><ClassTimeTable data={this.state.array_class}/></Route>
+                <Route path="/disproomtimetable"><OccupancyChart data={this.state.array_room}/></Route>
+                <Route path="/dispproftimetable"><ProfessorTimetable data={this.state.array}/></Route>
+                    {/* {
 
-                }
-                
-            </div>
+                        choice==='restimetable'
+                        ?
+                        <Timetable state={this.state}/>
+                        :
+                        choice==='dispcltimetable'
+                        ?
+                        <ClassTimeTable data={this.state.array_class}/>
+                        :
+                        choice==='dispproftimetable'
+                        ?
+                        <ProfessorTimetable data={this.state.array}/>
+                        :
+                        choice==='disproomtimetable'
+                        ?
+                        <OccupancyChart data={this.state.array_room}/>
+                        :
+                        <OccupancyChart data={this.state.array_room}/>
+
+                    } */}
+                    
+                </div>
+            </Router>
             
             )
     

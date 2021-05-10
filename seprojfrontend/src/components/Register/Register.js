@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Register.css';
 import pic1 from './undraw.png';
 class Register extends React.Component {
@@ -13,6 +14,10 @@ class Register extends React.Component {
       otpVerified:false
     }
   }
+  redirectToSignin = () => {
+    const { history } = this.props;
+    if(history) history.push('/signin');
+  }    
   
   onNameChange = (event) => {
     this.setState({name: event.target.value})
@@ -166,7 +171,7 @@ class Register extends React.Component {
       .then(user=>{
         if(user.email){
           alert("Successfully Registered")
-          this.props.onRouteChange('signin')
+          this.redirectToSignin()
 
           
         }
@@ -295,13 +300,14 @@ class Register extends React.Component {
           </div>
           <div class="fl w-100 w-40-ns pa2"  style={{ marginTop:"10%",marginLeft:"2%"}}>
             <h2>If already registered click this button</h2>
-            <input
-                onClick={() => onRouteChange('signin')}
-                className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
-                type="submit"
-                value="Click to Sign In"
-                style={{ marginLeft:"30%"}}
-              />
+            <Link to="signin">
+              <input
+                  className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
+                  type="submit"
+                  value="Click to Sign In"
+                  style={{ marginLeft:"30%"}}
+                />
+            </Link>
             <img style={{paddingTop: '5px', marginTop:"15%"}} alt='pic1' src={pic1}/>
 
           </div>

@@ -1,4 +1,14 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+    Redirect,
+    useHistory,
+    withRouter 
+  } from "react-router-dom";
+  
 class Signin extends React.Component {
     constructor(props) {
         super(props);
@@ -6,11 +16,17 @@ class Signin extends React.Component {
             otpVerified:false,
             user:null
           }
+    }
+    redirectToAfterSignin = () => {
+        const { history } = this.props;
+        if(history) history.push('/aftersignin');
     }    
     onSubmitSignIn =()=>{
+        
+        
         if(this.state.otpVerified){
             alert("Hello! "+this.state.user.name);
-            return this.props.onRouteChange('aftersignin')
+            this.redirectToAfterSignin()
 
         }
         else{
@@ -26,12 +42,14 @@ class Signin extends React.Component {
         .then(user => {
             if(user.email){
                 alert("Hello! "+user.name);
-                this.props.onRouteChange('aftersignin')
+                localStorage.setItem('usermail', user.email)
                 this.setState({
                     user:user
                 })
-                
-                console.log(user);
+
+                //console.log(user);
+                console.log(localStorage.getItem('usermail'))
+                this.redirectToAfterSignin()
                 //this.props.loadUser(user);
             }
             else{
@@ -222,7 +240,10 @@ class Signin extends React.Component {
                     </div>
                 </div>
                     <div className="lh-copy mt3">
-                        <p className="f6 link dim black db pointer underline" onClick={() => onRouteChange('forgotpass')}>Forgot password</p>
+                        <Link to="forgotpass">
+                        
+                            <p className="f6 link dim black db pointer underline" >Forgot password</p>
+                        </Link>
                     </div>
                 </fieldset>
 

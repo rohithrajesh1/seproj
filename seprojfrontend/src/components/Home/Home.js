@@ -3,6 +3,9 @@ import pic1 from './undraw1.svg';
 import pic2 from './undraw2.svg';
 import pic3 from './undraw3.svg';
 import './Home.css';
+import {Link} from 'react-router-dom';
+
+
 class Home extends React.Component {
     constructor(props) {
         super(props);
@@ -52,14 +55,14 @@ class Home extends React.Component {
                         <div class="fl w-100 w-50-ns pa2">
                         <div class="ph3 mb4 ma4">
 
-                    <a class="f2 link dim br3 ba bw2 ph3 pv2 mb2 dib  "  href="#0" onClick={() => onRouteChange('register')}>Reserve a room or Cancel a room booking </a>
+                    <Link to="/reservecancel"><a class="f2 link dim br3 ba bw2 ph3 pv2 mb2 dib  "  >Reserve a room or Cancel a room booking </a></Link>
 
                 </div>
                         </div>
                         <div class="fl w-100 w-50-ns pa2 center">
                             <div class="ph3 mb4 ma4">
 
-                            <a class="f2 link dim br3 ba bw2 ph3 pv2 mb2 dib  "  href="#0" onClick={() => onRouteChange('view')}>View Timetables or Room Occupancy Charts</a>
+                    <Link to="/view"><a class="f2 link dim br3 ba bw2 ph3 pv2 mb2 dib  "  >View Timetables or Room Occupancy Charts</a></Link>
 
                             </div>
                         </div>

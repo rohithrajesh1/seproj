@@ -22,6 +22,7 @@ class Timetable extends React.Component {
     }
 
     onSubmitTimetable = () =>{
+        console.log(localStorage.getItem('usermail'))
         var secnumber=document.getElementById("chclass").value
 
         if(secnumber===""){

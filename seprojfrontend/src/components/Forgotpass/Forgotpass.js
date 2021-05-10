@@ -10,6 +10,10 @@ class Forgotpass extends React.Component {
         }
     }
 
+    redirectToSignin = () => {
+      const { history } = this.props;
+      if(history) history.push('/signin');
+    }    
     onPhoneChange = (event) => {
       this.setState({phonenumber: event.target.value})
     }
@@ -53,7 +57,7 @@ class Forgotpass extends React.Component {
         if(resp.status){
           if(resp.status==="Success"){
             alert("Hello!")
-            this.props.onRouteChange('signin')
+            this.redirectToSignin()
 
           }
           else{
