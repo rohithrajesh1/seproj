@@ -81,6 +81,51 @@ const handleRoomAllocAlgo=(req,res,db,subject,email,secnumber,day,period) => {
                             .transacting(trx)
                 
                             queries.push(q3)
+
+
+
+
+                            const q4=db('professor_timetable_temp')
+                            .where('email','=',email)
+                            .andWhere('day','=',day)
+                            .andWhere('period','=',period)
+                            .update({
+                                roomnumber:roomnumber,
+                                secnumber: secnumber,
+                                subject: subject
+                    
+                            }) 
+                            .transacting(trx)
+                            
+                            queries.push(q4)
+                
+                            const q5=db('class_timetable_temp')
+                            .where('secnumber','=',secnumber)
+                            .andWhere('day','=',day)
+                            .andWhere('period','=',period)
+                            .update({
+                                roomnumber:roomnumber,
+                                email: email,
+                                subject: subject
+                
+                            })
+                            .transacting(trx)
+                
+                            queries.push(q5)
+                
+                            const q6=db('room_occ_chart_temp')
+                            .where('roomnumber','=',roomnumber)
+                            .andWhere('day','=',day)
+                            .andWhere('period','=',period)
+                            .update({
+                                secnumber: secnumber,
+                                email: email,
+                                subject: subject
+                
+                            })
+                            .transacting(trx)
+                
+                            queries.push(q6)
                 
                             return Promise.all(queries)
                             .then(dt=>{

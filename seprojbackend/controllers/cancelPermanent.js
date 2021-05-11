@@ -68,6 +68,51 @@ const onCancelPeriod=(req,res,db)=>{
 
             queries.push(q3)
 
+
+            const q4=db('professor_timetable_temp')
+            .where('email','=',data[0].email)
+            .andWhere('day','=',day)
+            .andWhere('period','=',period)
+            .update({
+                roomnumber:null,
+                secnumber: null,
+                subject: null
+    
+            }) 
+            .transacting(trx)
+            
+            queries.push(q4)
+
+            const q5=db('class_timetable_temp')
+            .where('secnumber','=',secnumber)
+            .andWhere('day','=',day)
+            .andWhere('period','=',period)
+            .update({
+                roomnumber:null,
+                email: null,
+                subject: null
+
+            })
+            .transacting(trx)
+
+            queries.push(q5)
+
+            const q6=db('room_occ_chart_temp')
+            .where('roomnumber','=',data[0].roomnumber)
+            .andWhere('day','=',day)
+            .andWhere('period','=',period)
+            .update({
+                secnumber:null,
+                email: null,
+                subject: null
+
+            })
+            .transacting(trx)
+
+            queries.push(q6)
+
+
+
             return Promise.all(queries)
             .then(dt=>{
                 trx.commit
