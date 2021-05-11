@@ -13,7 +13,9 @@ const getClassTimetable=require('./controllers/getClassTimetable');
 const getRommOccchart=require('./controllers/getRoomOccchart');
 const changePassword=require('./controllers/changePassword')
 const cancelPermanent=require('./controllers/cancelPermanent')
+const cancelTemp=require('./controllers/cancelTemp')
 const reserveOnePeriod=require('./controllers/reserveOnePeriod')
+const reserveOnePeriodTemp=require('./controllers/reserveOnePeriodTemp')
 const transferPeriod=require('./controllers/transfer')
 
 const db = knex({
@@ -57,7 +59,9 @@ app.post('/getClassTimetable',(req,res)=>{getClassTimetable.handleGetClassTimeta
 app.post('/getRoomOccchart',(req,res)=>{getRommOccchart.handleGetRoomOccchart(req,res,db)})
 app.post('/changePassword',(req,res)=>{changePassword.handleChangePassword(req,res,db)})
 app.post('/cancelPermanent',(req,res)=>{cancelPermanent.onCancelPeriod(req,res,db)})
+app.post('/cancelTemp',(req,res)=>{cancelTemp.onCancelPeriod(req,res,db)})
 app.post('/reserveOnePeriod',(req,res)=>{reserveOnePeriod.onReserveOnePeriod(req,res,db)})
+app.post('/reserveOnePeriodTemp',(req,res)=>{reserveOnePeriodTemp.onReserveOnePeriod(req,res,db)})
 app.post('/onTransfer',(req,res)=>{transferPeriod.onTransfer(req,res,db)})
 
 app.listen( 2500 , ()=>{
