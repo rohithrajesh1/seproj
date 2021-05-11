@@ -18,19 +18,13 @@ class Cancel extends React.Component {
                 body: JSON.stringify({
                     secnumber:secnumber,
                     day:day,
-                    period:period
+                    period:period,
+                    email:email
                 })
                 })
                 .then(response => response.json())
                 .then(status=>{
-                    if(status.status==="Success"){
-                      alert("Successfully cancelled permanently")
-            
-                      
-                    }
-                    else{
-                      alert("Cancellation Failed! Check the data entered")
-                    }
+                    alert(status.status)
                   })
         }
         else{
@@ -42,19 +36,13 @@ class Cancel extends React.Component {
                 body: JSON.stringify({
                     secnumber:secnumber, 
                     day:day,
-                    period:period
+                    period:period,
+                    email:email
                 })
                 })
                 .then(response => response.json())
                 .then(status=>{
-                    if(status.status==="Success"){
-                      alert("Successfully cancelled")
-            
-                      
-                    }
-                    else{
-                      alert("Cancellation Failed! Check the data entered")
-                    }
+                    alert(status.status)
                   })
 
         }

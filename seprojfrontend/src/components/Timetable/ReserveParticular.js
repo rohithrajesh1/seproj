@@ -53,14 +53,7 @@ class ReserveParticular extends React.Component {
                 })
                 .then(response => response.json())
                 .then(status=>{
-                    if(status.status==="Success"){
-                      alert("Successfully Reserved")
-            
-                      
-                    }
-                    else{
-                      alert("Reservation Failed! Check the data entered")
-                    }
+                    alert(status.status)
                   })
 
         }
