@@ -2,8 +2,47 @@ import React from 'react';
 
 class ReserveParticular extends React.Component {
 
+    onClickReserve=() =>{
+        var secnumber=document.getElementById("class").value;
+        var subject=document.getElementById("subject").value;
+        var day=document.getElementById("day").value;
+        var period=document.getElementById("period").value;
+        var email=localStorage.getItem("usermail");
+        var perm=document.getElementById("reserveperm").checked;
+        console.log(secnumber,email,perm)
+
+        if(perm===true){
+            fetch('http://localhost:2500/reserveOnePeriod', {
+                method:'post',
+                headers: {'Content-Type':'application/json',
+                'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    secnumber:secnumber,
+                    day:day,
+                    period:period,
+                    subject:subject,
+                    email:email
+                })
+                })
+                .then(response => response.json())
+                .then(status=>{
+                    if(status.status==="Success"){
+                      alert("Successfully Reserved")
+            
+                      
+                    }
+                    else{
+                      alert("Reservation Failed! Check the data entered")
+                    }
+                  })
+            }
+
+        }
     render() {
         const { onRouteChange } = this.props;
+        
+        
         return (
 
             <div>
@@ -29,7 +68,7 @@ class ReserveParticular extends React.Component {
                         <input id="period" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text"/>
                         <div class="flex items-center mb2">
                             <input class="mr2" type="checkbox" id="reserveperm" />
-                            <label for="reserveperm" class="lh-copy f6 b">Reserve Permanently</label>
+                            <label htmlFor="reserveperm" class="lh-copy f6 b">Reserve Permanently</label>
                         </div>
                     </form>
 
@@ -38,6 +77,7 @@ class ReserveParticular extends React.Component {
                         className="f6 link dim br3 ph3 pv2 mb2 dib white bg-light-red b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
                         type="submit"
                         value="Reserve room"
+                        onClick={this.onClickReserve}
                         style={{marginLeft:"25%", marginBottom:"10%",marginTop:"-10%"}}
 
                     />

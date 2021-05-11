@@ -34,7 +34,7 @@ const handleGetRoomOccchart = (req,res,db)=>{
         }
 
         db.select('*')
-            .from('room_occ_chart')
+            .from('room_occ_chart_temp')
             .where('roomnumber','=',roomnumber)
             .then(data =>{
                 //console.log(data)

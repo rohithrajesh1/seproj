@@ -29,7 +29,7 @@ const handleGetTeacherTimetable= (req,res,db)=>{
     
     
     db.select('*')
-    .from('professor_timetable')
+    .from('professor_timetable_temp')
     .where('email','=',email)
     .then(data =>{
         //console.log(data)

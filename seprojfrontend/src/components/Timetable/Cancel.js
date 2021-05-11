@@ -2,6 +2,41 @@ import React from 'react';
 
 class Cancel extends React.Component {
 
+    onClickCancel=() =>{
+        var secnumber=document.getElementById("class").value;
+        var day=document.getElementById("day").value;
+        var period=document.getElementById("period").value;
+        var email=localStorage.getItem("usermail");
+        var perm=document.getElementById("cancelperm").checked;
+        //console.log(secnumber,email,perm)
+        if(perm===true){
+            fetch('http://localhost:2500/cancelPermanent', {
+                method:'post',
+                headers: {'Content-Type':'application/json',
+                'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    secnumber:secnumber,
+                    day:day,
+                    period:period
+                })
+                })
+                .then(response => response.json())
+                .then(status=>{
+                    if(status.status==="Success"){
+                      alert("Successfully cancelled")
+            
+                      
+                    }
+                    else{
+                      alert("Cancellation Failed! Check the data entered")
+                    }
+                  })
+        }
+
+
+    }
+
     render() {
         const { onRouteChange } = this.props;
         return (
@@ -21,13 +56,9 @@ class Cancel extends React.Component {
                     <form class="pa4 black-80">
                         <label  class="f6 b db mb2">Class</label>
                         <input id="class" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text"/>
-                        <label  class="f6 b db mb2">Subject</label>
-                        <input id="subject" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text"/>
                         <label  class="f6 b db mb2">Day</label>
                         <input id="day" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text"/>
                         <label  class="f6 b db mb2">Period</label>
-                        <input id="period" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text"/>
-                        <label  class="f6 b db mb2">Room number</label>
                         <input id="period" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text"/>
                         <div class="flex items-center mb2">
                             <input class="mr2" type="checkbox" id="cancelperm" />
@@ -41,6 +72,7 @@ class Cancel extends React.Component {
                             className="f6 link dim br3 ph3 pv2 mb2 dib white bg-light-red b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
                             type="submit"
                             value="Cancel Room"
+                            onClick={this.onClickCancel}
                             style={{marginBottom:"10%"}}
 
                         />

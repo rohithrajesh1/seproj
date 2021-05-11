@@ -29,7 +29,7 @@ const db = knex({
       host : 'localhost',
       port: 5432,
       user : 'postgres',
-      password : 'Thudu',
+      password : '1077',
       database : 'roomoccupancy',
     }
   });
@@ -46,7 +46,7 @@ db.select('email','name').from('teachers').then(data=>{
 });
 
 app.post('/login', (req,res) => { login.handleLogin(req,res,db)} )
-app.post('/register', (req,res) => { register.handleRegister(req,res,db)} ) //r
+app.post('/register', (req,res) => { register.handleRegister(req,res,db)}) //r
 app.post('/otp', (req,res) => { otp.handleotp(req,res)} )
 app.post('/verifyotp', (req,res) => { otp.handleverifyotp(req,res)} )
 app.post('/getotpindb', (req,res) => { otp.handleotpindb(req,res,db)} )

@@ -2,6 +2,51 @@ import React from 'react';
 
 class TransferReservation extends React.Component {
 
+
+    onClickTransfer=() =>{
+        var secnumbera=document.getElementById("classa").value;
+        var secnumberb=document.getElementById("classb").value;
+        var day=document.getElementById("day").value;
+        var period=document.getElementById("period").value;
+        var subject=document.getElementById("subject").value;
+        var emaila=localStorage.getItem("usermail");
+        var emailb=document.getElementById("emailb").value;
+        //var perm=document.getElementById("cancelperm").checked;
+        var roomnumber=document.getElementById("room").value;
+        //console.log(secnumber,email,perm)
+
+        fetch('http://localhost:2500/onTransfer', {
+            method:'post',
+            headers: {'Content-Type':'application/json',
+            'Accept': 'application/json'
+            },
+            body: JSON.stringify({
+                emaila:emaila,
+                emailb:emailb,
+                secnumbera:secnumbera,
+                secnumberb:secnumberb,
+                roomnumber:roomnumber, 
+                subject:subject,
+                day:day,
+                period:period
+            })
+            })
+            .then(response => response.json())
+            .then(status=>{
+                if(status.status==="Success"){
+                    alert("Successfully tranferred reservation")
+        
+                    
+                }
+                else{
+                    alert("Transfer Failed! Check the data entered")
+                }
+                })
+    
+
+
+        }
+
     render() {
         const { onRouteChange } = this.props;
         return (
@@ -19,8 +64,10 @@ class TransferReservation extends React.Component {
                     </div>
                     
                     <form class="pa4 black-80">
-                        <label  class="f6 b db mb2">Class</label>
-                        <input id="class" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text"/>
+                        <label  class="f6 b db mb2">Previously Scheduled Class</label>
+                        <input id="classa" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text"/>
+                        <label  class="f6 b db mb2">New Class</label>
+                        <input id="classb" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text"/>
                         <label  class="f6 b db mb2">Subject</label>
                         <input id="subject" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text"/>
                         <label  class="f6 b db mb2">Day</label>
@@ -28,9 +75,10 @@ class TransferReservation extends React.Component {
                         <label  class="f6 b db mb2">Period</label>
                         <input id="period" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text"/>
                         <label  class="f6 b db mb2">Room number</label>
-                        <input id="period" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text"/>
+                        <input id="room" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text"/>
                         <label  class="f6 b db mb2">Enter e-mail id corresponding teacher</label>
-                        <input id="period" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text"/>
+                        <input id="emailb" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text"/>
+    
                         
                     
                     </form>
@@ -40,6 +88,7 @@ class TransferReservation extends React.Component {
                             className="f6 link dim br3 ph3 pv2 mb2 dib white bg-light-red b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
                             type="submit"
                             value="Transfer Reservation"
+                            onClick={this.onClickTransfer}
                             style={{marginBottom:"10%"}}
 
                         />

@@ -34,7 +34,7 @@ const handleGetClassTimetable = (req,res,db)=>{
         }
 
         db.select('*')
-    .from('class_timetable')
+    .from('class_timetable_temp')
     .where('secnumber','=',secnumber)
     .then(data =>{
         //console.log(data)
