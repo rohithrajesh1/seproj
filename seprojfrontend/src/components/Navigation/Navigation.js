@@ -35,7 +35,7 @@ const Navigation = ({ onRouteChange }) => {
           <a
             className="link dim white dib mr3"
             href="#"
-            title="Home"
+            title="signout"
             onClick={signout}
             
           >

@@ -24,6 +24,30 @@ class Cancel extends React.Component {
                 .then(response => response.json())
                 .then(status=>{
                     if(status.status==="Success"){
+                      alert("Successfully cancelled permanently")
+            
+                      
+                    }
+                    else{
+                      alert("Cancellation Failed! Check the data entered")
+                    }
+                  })
+        }
+        else{
+            fetch('http://localhost:2500/cancelTemp', {
+                method:'post',
+                headers: {'Content-Type':'application/json',
+                'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    secnumber:secnumber, 
+                    day:day,
+                    period:period
+                })
+                })
+                .then(response => response.json())
+                .then(status=>{
+                    if(status.status==="Success"){
                       alert("Successfully cancelled")
             
                       
@@ -32,6 +56,7 @@ class Cancel extends React.Component {
                       alert("Cancellation Failed! Check the data entered")
                     }
                   })
+
         }
 
 

@@ -28,6 +28,32 @@ class ReserveParticular extends React.Component {
                 .then(response => response.json())
                 .then(status=>{
                     if(status.status==="Success"){
+                      alert("Successfully Reserved Permanently")
+            
+                      
+                    }
+                    else{
+                      alert("Reservation Failed! Check the data entered")
+                    }
+                  })
+        }
+        else{
+            fetch('http://localhost:2500/reserveOnePeriodTemp', {
+                method:'post',
+                headers: {'Content-Type':'application/json',
+                'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    secnumber:secnumber,
+                    day:day,
+                    period:period,
+                    subject:subject,
+                    email:email
+                })
+                })
+                .then(response => response.json())
+                .then(status=>{
+                    if(status.status==="Success"){
                       alert("Successfully Reserved")
             
                       
@@ -36,9 +62,10 @@ class ReserveParticular extends React.Component {
                       alert("Reservation Failed! Check the data entered")
                     }
                   })
-            }
 
         }
+
+    }
     render() {
         const { onRouteChange } = this.props;
         
