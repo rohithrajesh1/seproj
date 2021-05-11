@@ -1,6 +1,6 @@
 const onCancelPeriod=(req,res,db)=>{
-    const {secnumber,day,period}=req.body;
-    if(!(secnumber,day,period)){
+    const {secnumber,day,period,email}=req.body;
+    if(!(secnumber,day,period,email)){
         //console.log("begin")
         return res.status(400).json("Invalid Input. Please enter again")
     }
@@ -23,6 +23,7 @@ const onCancelPeriod=(req,res,db)=>{
             })
         }
         else{
+            if(data[0].email==email){
         db.transaction(trx=>{
             var queries=[]
             const q1=db('professor_timetable')
@@ -84,6 +85,13 @@ const onCancelPeriod=(req,res,db)=>{
             })
     
         })
+        }
+        else{
+            return res.json({
+                status:"Illegal Access"
+
+            })
+        }
         }
         
     })
