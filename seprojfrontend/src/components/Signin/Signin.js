@@ -20,6 +20,7 @@ class Signin extends React.Component {
     redirectToAfterSignin = () => {
         const { history } = this.props;
         if(history) history.push('/aftersignin');
+        window.location.reload();
     }    
     onSubmitSignIn =()=>{
         

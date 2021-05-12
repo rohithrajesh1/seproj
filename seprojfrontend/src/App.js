@@ -43,11 +43,13 @@ class App extends Component{
   }
   render() {
     const {route} = this.state;
+    
     return (
+      
       <Router>
         <div>
           
-          <Navigation/>
+           <Navigation/>
             
           
             <Route exact path="/" component={Home}/>
