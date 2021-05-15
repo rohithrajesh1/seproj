@@ -1,12 +1,11 @@
 import React from 'react';
-
-
+import swal from 'sweetalert';
 
 //for (var l=0;l<20;l++){
 //    obj.array[l] = l+1;
 //}
 
-//var flg=false;
+//var flg=false; 
 
 class Timetable extends React.Component {
     constructor(props){
@@ -20,6 +19,15 @@ class Timetable extends React.Component {
 
 
     }
+    redirectToAfterReserve = () => {
+        const { history } = this.props;
+        if(history){
+            history.push('/dispcltimetable');
+            console.log("sss")
+        } 
+        //window.location.reload();
+    }    
+
 
     onSubmitTimetable = () =>{
         console.log(localStorage.getItem('usermail'))
@@ -114,15 +122,17 @@ class Timetable extends React.Component {
         .then(resp => {
             if(resp.status){
                 if(resp.status==="Success"){
-                  alert("Table Stored Successfully");
-  
+                  //alert("Time Table Stored Successfully");
+                  swal("Success!", "Time Table Stored Successfully", "success");
+                  //this.redirectToAfterReserve()
                 }
                 else{
-                  alert("Table Store unsuccessful");
+                    swal("Failed!","Table Store unsuccessful","error")
                 }
             }
             else{
-                alert("Table Store unsuccessful")
+                
+                swal("Failed!","Table Store unsuccessful","error")
             }
         })
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+//import {browserHistory} from "react-router";
 
 
 class Navigation extends React.Component{
@@ -9,6 +9,12 @@ class Navigation extends React.Component{
     super();
     this.state={isSignedIn:this.isSignedInfunc()}
   }
+  redirectToAfterSignout = () => {
+    //const { history } = this.props;
+    //browserHistory.push("/aftersignin");
+    //if(history) history.push('/aftersignin');
+    window.location.replace('/');
+}
   //var isSignedIn=0;
   isSignedInfunc=()=>{
     if(localStorage.getItem('usermail')){
@@ -19,6 +25,7 @@ class Navigation extends React.Component{
   signout=()=>{
     localStorage.clear()
     document.getElementById('signinstat').className="hide";
+    this.redirectToAfterSignout()
   }
    
   signin=()=>{

@@ -1,4 +1,5 @@
 import React, {PureComponent} from 'react';
+import swal from 'sweetalert';
 import {
     BrowserRouter as Router,
     Switch,
@@ -43,6 +44,7 @@ class Signin extends React.Component {
         .then(user => {
             if(user.email){
                 alert("Hello! "+user.name);
+                //swal("Welcome!", user.name, "success");
                 localStorage.setItem('usermail', user.email)
                 this.setState({
                     user:user
@@ -54,7 +56,8 @@ class Signin extends React.Component {
                 //this.props.loadUser(user);
             }
             else{
-                alert("Invalid credentials")
+                //alert("Invalid credentials")
+                swal("Failed!","Invalid credentials","error")
             }
         })
 
@@ -83,11 +86,11 @@ class Signin extends React.Component {
     
     
         if(!(phonenumber.match(numbers_check) )){
-          return alert("Invalid phone number")
+          return swal("Failed!","Invalid phone number","error")
       }
     
       if(phonenumber.length!=10){
-        return alert("Invalid phone number")
+        return swal("Failed!","Invalid phone number","error")
       }
     
         document.getElementById('chotp').className="show";
@@ -110,12 +113,12 @@ class Signin extends React.Component {
                     this.setState({
                         user:resp.teacher
                     })
-                    alert("OTP sent");
+                    swal("Success!", "OTP sent", "success");
     
                     //this.props.loadUser(user);
                 }
                 else{
-                    alert("Invalid credentials")
+                    swal("Failed!","Invalid credentials","error")
                 }
             })
     
@@ -144,7 +147,9 @@ class Signin extends React.Component {
               console.log(resp)
                 if(resp.status){
                   if(resp.status==="Success"){
-                    alert("OTP successfully verified");
+                    //alert();
+                    swal("Success!","OTP successfully verified", "success");
+                    
                     this.setState({
                         otpVerified:true,
                         
@@ -154,7 +159,8 @@ class Signin extends React.Component {
     
                   }
                   else{
-                    alert("OTP mismatch");
+               
+                    swal("Failed!","OTP mismatch","error")
                   }
                   
                     
@@ -162,7 +168,8 @@ class Signin extends React.Component {
                     //this.props.loadUser(user);
                 }
                 else{
-                    alert("Didn't receive OTP try again")
+                    swal("Failed!","Didn't receive OTP try again","error")
+
                 }
             })
     

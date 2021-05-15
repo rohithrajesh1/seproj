@@ -1,4 +1,5 @@
 import React from 'react';
+import swal from 'sweetalert';
 
 class ClassTimeTable extends React.Component {
 
@@ -62,7 +63,7 @@ class ClassTimeTable extends React.Component {
             
             }
             else{
-                return alert("Failed getClasses")
+                return swal("Failed!","Failed getClasses","error")
             }
         })
     }
@@ -125,7 +126,7 @@ class ClassTimeTable extends React.Component {
                     <tr class="stripe-dark">
                     <td class="pa3 bg-white" >Monday</td>
                     <td class="pa3">
-                        <div align="center">
+                        <div align="center" style={{color:this.state.sub_array["MONDAY"][0]==='Free'?"red":""}}>
                             <p>{this.state.sub_array["MONDAY"][0]}</p>
                             <p>{this.state.prof_array["MONDAY"][0]}</p>
                             <p>{this.state.room_array["MONDAY"][0]}</p>
@@ -133,8 +134,8 @@ class ClassTimeTable extends React.Component {
                         </div>
                     </td>
                     <td class="pa3">
-                        <div align="center">
-                        <p>{this.state.sub_array["MONDAY"][1]}</p>
+                        <div align="center" style={{color:this.state.sub_array["MONDAY"][1]==='Free'?"red":""}}> 
+                            <p>{this.state.sub_array["MONDAY"][1]}</p>
                             <p>{this.state.prof_array["MONDAY"][1]}</p>
                             <p>{this.state.room_array["MONDAY"][1]}</p>
                           
@@ -142,7 +143,7 @@ class ClassTimeTable extends React.Component {
                             </div>
                         </td>
                         <td class="pa3">
-                        <div align="center">
+                        <div align="center" style={{color:this.state.sub_array["MONDAY"][2]==='Free'?"red":""}}>
                         <p>{this.state.sub_array["MONDAY"][2]}</p>
                             <p>{this.state.prof_array["MONDAY"][2]}</p>
                             <p>{this.state.room_array["MONDAY"][2]}</p>
@@ -151,7 +152,7 @@ class ClassTimeTable extends React.Component {
                             </div>
                         </td>
                         <td class="pa3">
-                        <div align="center">
+                        <div align="center" style={{color:this.state.sub_array["MONDAY"][3]==='Free'?"red":""}}>
                         <p>{this.state.sub_array["MONDAY"][3]}</p>
                             <p>{this.state.prof_array["MONDAY"][3]}</p>
                             <p>{this.state.room_array["MONDAY"][3]}</p>
@@ -160,7 +161,7 @@ class ClassTimeTable extends React.Component {
                             </div>
                         </td>
                         <td class="pa3">
-                        <div align="center">
+                        <div align="center" style={{color:this.state.sub_array["MONDAY"][4]==='Free'?"red":""}}>
                         <p>{this.state.sub_array["MONDAY"][4]}</p>
                             <p>{this.state.prof_array["MONDAY"][4]}</p>
                             <p>{this.state.room_array["MONDAY"][4]}</p>
@@ -168,7 +169,7 @@ class ClassTimeTable extends React.Component {
                             </div>
                         </td>
                         <td class="pa3">
-                        <div align="center">
+                        <div align="center" style={{color:this.state.sub_array["MONDAY"][5]==='Free'?"red":""}}>
                         <p>{this.state.sub_array["MONDAY"][5]}</p>
                             <p>{this.state.prof_array["MONDAY"][5]}</p>
                             <p>{this.state.room_array["MONDAY"][5]}</p>
@@ -179,7 +180,7 @@ class ClassTimeTable extends React.Component {
                     <tr class="stripe-dark">
                     <td class="pa3 bg-white">Tuesday</td>
                     <td class="pa3">
-                        <div align="center">
+                        <div align="center" style={{color:this.state.sub_array["TUESDAY"][0]==='Free'?"red":""}}>
                         <p>{this.state.sub_array["TUESDAY"][0]}</p>
                             <p>{this.state.prof_array["TUESDAY"][0]}</p>
                             <p>{this.state.room_array["TUESDAY"][0]}</p>
@@ -187,7 +188,7 @@ class ClassTimeTable extends React.Component {
                             </div>
                         </td>
                         <td class="pa3">
-                        <div align="center">
+                        <div align="center" style={{color:this.state.sub_array["TUESDAY"][1]==='Free'?"red":""}}>
                         <p>{this.state.sub_array["TUESDAY"][1]}</p>
                             <p>{this.state.prof_array["TUESDAY"][1]}</p>
                             <p>{this.state.room_array["TUESDAY"][1]}</p>
@@ -196,31 +197,31 @@ class ClassTimeTable extends React.Component {
                             </div>
                         </td>
                         <td class="pa3">
-                        <div align="center">
-                        <p>{this.state.sub_array["TUESDAY"][2]}</p>
+                        <div align="center" style={{color:this.state.sub_array["TUESDAY"][2]==='Free'?"red":""}}>
+                            <p>{this.state.sub_array["TUESDAY"][2]}</p>
                             <p>{this.state.prof_array["TUESDAY"][2]}</p>
                             <p>{this.state.room_array["TUESDAY"][2]}</p>
 
                             </div>
                         </td>
                         <td class="pa3">
-                        <div align="center">
-                        <p>{this.state.sub_array["TUESDAY"][3]}</p>
+                        <div align="center" style={{color:this.state.sub_array["TUESDAY"][3]==='Free'?"red":""}}>
+                            <p>{this.state.sub_array["TUESDAY"][3]}</p>
                             <p>{this.state.prof_array["TUESDAY"][3]}</p>
                             <p>{this.state.room_array["TUESDAY"][3]}</p>
 
                             </div>
                         </td>
                         <td class="pa3">
-                        <div align="center">
+                        <div align="center" style={{color:this.state.sub_array["TUESDAY"][4]==='Free'?"red":""}}>
                         <p>{this.state.sub_array["TUESDAY"][4]}</p>
                             <p>{this.state.prof_array["TUESDAY"][4]}</p>
                             <p>{this.state.room_array["TUESDAY"][4]}</p>
                             </div>
                         </td>
                         <td class="pa3">
-                        <div align="center">
-                        <p>{this.state.sub_array["TUESDAY"][5]}</p>
+                        <div align="center" style={{color:this.state.sub_array["TUESDAY"][5]==='Free'?"red":""}}>
+                            <p>{this.state.sub_array["TUESDAY"][5]}</p>
                             <p>{this.state.prof_array["TUESDAY"][5]}</p>
                             <p>{this.state.room_array["TUESDAY"][5]}</p>
 
@@ -231,15 +232,15 @@ class ClassTimeTable extends React.Component {
                     <tr class="stripe-dark">
                     <td class="pa3 bg-white">Wednesday</td>
                     <td class="pa3">
-                        <div align="center">
-                        <p>{this.state.sub_array["WEDNESDAY"][0]}</p>
+                        <div align="center" style={{color:this.state.sub_array["WEDNESDAY"][0]==='Free'?"red":""}}>
+                            <p>{this.state.sub_array["WEDNESDAY"][0]}</p>
                             <p>{this.state.prof_array["WEDNESDAY"][0]}</p>
                             <p>{this.state.room_array["WEDNESDAY"][0]}</p>
 
-                            </div>
+                        </div>
                         </td>
                         <td class="pa3">
-                        <div align="center">
+                        <div align="center" style={{color:this.state.sub_array["WEDNESDAY"][1]==='Free'?"red":""}}>
                         <p>{this.state.sub_array["WEDNESDAY"][1]}</p>
                             <p>{this.state.prof_array["WEDNESDAY"][1]}</p>
                             <p>{this.state.room_array["WEDNESDAY"][1]}</p>
@@ -247,7 +248,7 @@ class ClassTimeTable extends React.Component {
                             </div>
                         </td>
                         <td class="pa3">
-                        <div align="center">
+                        <div align="center" style={{color:this.state.sub_array["WEDNESDAY"][2]==='Free'?"red":""}}>
                         <p>{this.state.sub_array["WEDNESDAY"][2]}</p>
                             <p>{this.state.prof_array["WEDNESDAY"][2]}</p>
                             <p>{this.state.room_array["WEDNESDAY"][2]}</p>
@@ -255,7 +256,7 @@ class ClassTimeTable extends React.Component {
                             </div>
                         </td>
                         <td class="pa3">
-                        <div align="center">
+                        <div align="center" style={{color:this.state.sub_array["WEDNESDAY"][3]==='Free'?"red":""}}>
                         <p>{this.state.sub_array["WEDNESDAY"][3]}</p>
                             <p>{this.state.prof_array["WEDNESDAY"][3]}</p>
                             <p>{this.state.room_array["WEDNESDAY"][3]}</p>
@@ -263,14 +264,14 @@ class ClassTimeTable extends React.Component {
                             </div>
                         </td>
                         <td class="pa3">
-                        <div align="center">
+                        <div align="center" style={{color:this.state.sub_array["WEDNESDAY"][4]==='Free'?"red":""}}>
                         <p>{this.state.sub_array["WEDNESDAY"][4]}</p>
                             <p>{this.state.prof_array["WEDNESDAY"][4]}</p>
                             <p>{this.state.room_array["WEDNESDAY"][4]}</p>
                             </div>
                         </td>
                         <td class="pa3">
-                        <div align="center">
+                        <div align="center" style={{color:this.state.sub_array["WEDNESDAY"][5]==='Free'?"red":""}}>
                         <p>{this.state.sub_array["WEDNESDAY"][5]}</p>
                             <p>{this.state.prof_array["WEDNESDAY"][5]}</p>
                             <p>{this.state.room_array["WEDNESDAY"][5]}</p>
@@ -281,7 +282,7 @@ class ClassTimeTable extends React.Component {
                     <tr class="stripe-dark">
                     <td class="pa3 bg-white">Thursday</td>
                     <td class="pa3">
-                        <div align="center">
+                        <div align="center" style={{color:this.state.sub_array["THURSDAY"][0]==='Free'?"red":""}}>
                         <p>{this.state.sub_array["THURSDAY"][0]}</p>
                             <p>{this.state.prof_array["THURSDAY"][0]}</p>
                             <p>{this.state.room_array["THURSDAY"][0]}</p>
@@ -289,7 +290,7 @@ class ClassTimeTable extends React.Component {
                             </div>
                         </td>
                         <td class="pa3">
-                        <div align="center">
+                        <div align="center" style={{color:this.state.sub_array["THURSDAY"][1]==='Free'?"red":""}}>
                         <p>{this.state.sub_array["THURSDAY"][1]}</p>
                             <p>{this.state.prof_array["THURSDAY"][1]}</p>
                             <p>{this.state.room_array["THURSDAY"][1]}</p>
@@ -297,7 +298,7 @@ class ClassTimeTable extends React.Component {
                             </div>
                         </td>
                         <td class="pa3">
-                        <div align="center">
+                        <div align="center" style={{color:this.state.sub_array["THURSDAY"][2]==='Free'?"red":""}}>
                         <p>{this.state.sub_array["THURSDAY"][2]}</p>
                             <p>{this.state.prof_array["THURSDAY"][2]}</p>
                             <p>{this.state.room_array["THURSDAY"][2]}</p>
@@ -305,21 +306,21 @@ class ClassTimeTable extends React.Component {
                             </div>
                         </td>
                         <td class="pa3">
-                        <div align="center">
+                        <div align="center" style={{color:this.state.sub_array["THURSDAY"][3]==='Free'?"red":""}}>
                         <p>{this.state.sub_array["THURSDAY"][3]}</p>
                             <p>{this.state.prof_array["THURSDAY"][3]}</p>
                             <p>{this.state.room_array["THURSDAY"][3]}</p>
                             </div>
                         </td>
                         <td class="pa3">
-                        <div align="center">
+                        <div align="center" style={{color:this.state.sub_array["THURSDAY"][4]==='Free'?"red":""}}>
                         <p>{this.state.sub_array["THURSDAY"][4]}</p>
                             <p>{this.state.prof_array["THURSDAY"][4]}</p>
                             <p>{this.state.room_array["THURSDAY"][4]}</p>
                             </div>
                         </td>
                         <td class="pa3">
-                        <div align="center">
+                        <div align="center" style={{color:this.state.sub_array["THURSDAY"][5]==='Free'?"red":""}}>
                         <p>{this.state.sub_array["THURSDAY"][5]}</p>
                             <p>{this.state.prof_array["THURSDAY"][5]}</p>
                             <p>{this.state.room_array["THURSDAY"][5]}</p>
@@ -330,14 +331,14 @@ class ClassTimeTable extends React.Component {
                     <tr class="stripe-dark">
                     <td class="pa3 bg-white">Friday</td>
                     <td class="pa3">
-                        <div align="center">
+                        <div align="center" style={{color:this.state.sub_array["FRIDAY"][0]==='Free'?"red":""}}>
                         <p>{this.state.sub_array["FRIDAY"][0]}</p>
                             <p>{this.state.prof_array["FRIDAY"][0]}</p>
                             <p>{this.state.room_array["FRIDAY"][0]}</p>
                             </div>
                         </td>
                         <td class="pa3">
-                        <div align="center">
+                        <div align="center" style={{color:this.state.sub_array["FRIDAY"][1]==='Free'?"red":""}}>
                         <p>{this.state.sub_array["FRIDAY"][1]}</p>
                             <p>{this.state.prof_array["FRIDAY"][1]}</p>
                             <p>{this.state.room_array["FRIDAY"][1]}</p>
@@ -345,7 +346,7 @@ class ClassTimeTable extends React.Component {
                             </div>
                         </td>
                         <td class="pa3">
-                        <div align="center">
+                        <div align="center" style={{color:this.state.sub_array["FRIDAY"][2]==='Free'?"red":""}}>
                         <p>{this.state.sub_array["FRIDAY"][2]}</p>
                             <p>{this.state.prof_array["FRIDAY"][2]}</p>
                             <p>{this.state.room_array["FRIDAY"][2]}</p>
@@ -353,14 +354,14 @@ class ClassTimeTable extends React.Component {
                             </div>
                         </td>
                         <td class="pa3">
-                        <div align="center">
+                        <div align="center" style={{color:this.state.sub_array["FRIDAY"][3]==='Free'?"red":""}}>
                         <p>{this.state.sub_array["FRIDAY"][3]}</p>
                             <p>{this.state.prof_array["FRIDAY"][3]}</p>
                             <p>{this.state.room_array["FRIDAY"][3]}</p>
                             </div>
                         </td>
                         <td class="pa3">
-                        <div align="center">
+                        <div align="center" style={{color:this.state.sub_array["FRIDAY"][4]==='Free'?"red":""}}>
                         <p>{this.state.sub_array["FRIDAY"][4]}</p>
                             <p>{this.state.prof_array["FRIDAY"][4]}</p>
                             <p>{this.state.room_array["FRIDAY"][4]}</p>
@@ -368,7 +369,7 @@ class ClassTimeTable extends React.Component {
                             </div>
                         </td>
                         <td class="pa3">
-                        <div align="center">
+                        <div align="center" style={{color:this.state.sub_array["FRIDAY"][5]==='Free'?"red":""}}>
                         <p>{this.state.sub_array["FRIDAY"][5]}</p>
                             <p>{this.state.prof_array["FRIDAY"][5]}</p>
                             <p>{this.state.room_array["FRIDAY"][5]}</p>

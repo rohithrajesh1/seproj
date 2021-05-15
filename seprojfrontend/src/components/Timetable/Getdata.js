@@ -3,6 +3,9 @@ import Signin from '../Signin/Signin';
 import ClassTimeTable from './ClassTimeTable';
 import OccupancyChart from './OccupancyChart';
 import ProfessorTimetable from './ProfessorTimetable';
+import Free from './Free';
+import swal from 'sweetalert';
+
 import Timetable from './Timetable';
 import {
     BrowserRouter as Router,
@@ -10,6 +13,11 @@ import {
     Route,
     Link
   } from "react-router-dom";
+import FreeClass from './FreeClass';
+import SubsetClass from './SubsetClass';
+import ReserveParticular from './ReserveParticular';
+import TransferReservation from './TransferReservation';
+import Cancel from './Cancel';
 var percentArray = [];
 
 
@@ -67,7 +75,7 @@ class Getdata extends React.Component {
             
             }
             else{
-                return alert("Failed getteachers")
+                return swal("Failed!","Failed getTeachers","error")
             }
         })
 
@@ -97,7 +105,7 @@ class Getdata extends React.Component {
             
             }
             else{
-                return alert("Failed getClasses")
+                return swal("Failed!","Failed getClasses","error")
             }
         })
         
@@ -128,7 +136,7 @@ class Getdata extends React.Component {
             
             }
             else{
-                return alert("Failed getRooms")
+                return swal("Failed!","Failed getRooms","error")
             }
         })
         
@@ -148,6 +156,13 @@ class Getdata extends React.Component {
                 <Route path="/dispcltimetable"><ClassTimeTable data={this.state.array_class}/></Route>
                 <Route path="/disproomtimetable"><OccupancyChart data={this.state.array_room}/></Route>
                 <Route path="/dispproftimetable"><ProfessorTimetable data={this.state.array}/></Route>
+                <Route path="/free"><Free data={this.state.array_room}/></Route>
+                <Route path="/freeclass"><FreeClass data={this.state.array_class}/></Route>
+                <Route path="/subsetclass"><SubsetClass data={this.state.array_class}/></Route>
+                
+                <Route path="/reservepartic"><ReserveParticular data={this.state.array_class}/></Route> 
+                <Route path="/cancelpartic"><Cancel data={this.state.array_class} /></Route> 
+                <Route path="/transferreservation"><TransferReservation data={this.state.array_class} data2={this.state.array_room}/></Route>
                     {/* {
 
                         choice==='restimetable'

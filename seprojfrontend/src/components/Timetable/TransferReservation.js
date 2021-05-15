@@ -1,5 +1,5 @@
 import React from 'react';
-
+import swal from 'sweetalert';
 class TransferReservation extends React.Component {
 
 
@@ -34,12 +34,14 @@ class TransferReservation extends React.Component {
             .then(response => response.json())
             .then(status=>{
                 if(status.status==="Success"){
-                    alert("Successfully tranferred reservation")
+                    //alert("Successfully tranferred reservation")
+                    swal("Success!", "Successfully tranferred reservation", "success");
         
                     
                 }
                 else{
-                    alert("Transfer Failed! Check the data entered")
+                    //alert("Transfer Failed! Check the data entered")
+                    swal("Failed!","Transfer Failed! Check the data entered","error")
                 }
                 })
     
@@ -48,7 +50,17 @@ class TransferReservation extends React.Component {
         }
 
     render() {
-        const { onRouteChange } = this.props;
+        let class_list = this.props.data;
+        let classOptionItems = class_list.map((item) =>
+                <option value={item.secnumber}>{item.secnumber}</option>
+
+
+            );
+
+        let room_list = this.props.data2;
+        let roomOptionItems = room_list.map((item) =>
+                <option value={item.roomnumber}>{item.roomnumber}</option>
+            ); 
         return (
 
             <div>
@@ -65,18 +77,43 @@ class TransferReservation extends React.Component {
                     
                     <form class="pa4 black-80">
                         <label  class="f6 b db mb2">Previously Scheduled Class</label>
-                        <input id="classa" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text"/>
+                        <select id="classa" class="w-100 db h2 f6 bg-near-white ba b--sliver gray" name="" >
+                            <option value="">Choose the class</option>
+                            {classOptionItems}
+                        </select>
                         <label  class="f6 b db mb2">New Class</label>
-                        <input id="classb" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text"/>
+                        <select id="classb" class="w-100 db h2 f6 bg-near-white ba b--sliver gray" name="" >
+                            <option value="">Choose the class</option>
+                            {classOptionItems}
+                        </select>
                         <label  class="f6 b db mb2">Subject</label>
                         <input id="subject" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text"/>
                         <label  class="f6 b db mb2">Day</label>
-                        <input id="day" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text"/>
+                        <select id="day" class="w-100 db h2 f6 bg-near-white ba b--sliver gray" name="" >
+                                    <option value="">Choose the day</option>
+                                    <option value="MONDAY">MONDAY</option>
+                                    <option value="TUESDAY">TUESDAY</option>
+                                    <option value="WEDNESDAY">WEDNESDAY</option>
+                                    <option value="THURSDAY">THURSDAY</option>
+                                    <option value="FRIDAY">FRIDAY</option>
+                        </select>
+                
                         <label  class="f6 b db mb2">Period</label>
-                        <input id="period" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text"/>
+                        <select id="period" class="w-100 db h2 f6 bg-near-white ba b--sliver gray" name="" >
+                                    <option value="">Choose the period here</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
                         <label  class="f6 b db mb2">Room number</label>
-                        <input id="room" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text"/>
-                        <label  class="f6 b db mb2">Enter e-mail id corresponding teacher</label>
+                        <select id="room" class="w-100 db h2 f6 bg-near-white ba b--sliver gray" name="" >
+                            <option value="">Choose room number</option>
+                            {roomOptionItems}
+                        </select>
+                        <label  class="f6 b db mb2">Enter e-mail id of the corresponding teacher</label>
                         <input id="emailb" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text"/>
     
                         

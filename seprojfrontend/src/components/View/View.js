@@ -29,13 +29,13 @@ class View extends React.Component {
 
                 <div className="" style={{textAlign:'center',marginTop:"6%"}}>
                     <Link to="dispcltimetable">
-                    <input
-                        className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f2 blue dib"
-                        type="button"
-                        id="clt"
-                        value="  Get class timetable  "
+                        <input
+                            className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f2 blue dib"
+                            type="button"
+                            id="clt"
+                            value="  Get class timetable  "
 
-                    />
+                        />
                     </Link>
                 </div>
 
@@ -56,23 +56,66 @@ class View extends React.Component {
                     </div>
                     </div>
                     <div class="fl w-100 w-50-ns pa2">
-                    <div className="" style={{textAlign:'center',marginTop:"5%"}}>
-                    <Link to="disproomtimetable"> 
-                    <input
-                
-                        className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f2 blue dib"
-                        type="button"
-                        id="roc"
-                        value="Get room occupancy chart"
+                        <div className="" style={{textAlign:'center',marginTop:"5%"}}>
+                        <Link to="disproomtimetable"> 
+                            <input
+                        
+                                className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f2 blue dib"
+                                type="button"
+                                id="roc"
+                                value="Get room occupancy chart"
 
-                        />
-                    </Link>   
-                    </div>
+                                />
+                        </Link>   
+                        </div>
                     
                     </div>
                 </div>
                 </div>
+                <div className="" style={{textAlign:'center',marginTop:"6%"}}>
+                    <Link to="subsetclass">
+                        <input
+                            className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f2 blue dib"
+                            type="button"
+                            id="clt"
+                            value="  Get subset of class timetable  "
 
+                        />
+                    </Link>
+                </div>
+                <div class="mw9 center ph3-ns">
+                <div class="cf ph2-ns">
+                    <div class="fl w-100 w-50-ns pa2">
+                    <div className="" style={{textAlign:'center',marginTop:"5%"}}>
+                    <Link to="freeclass">
+                        <input
+                            
+                            className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f2 blue dib"
+                            type="button"
+                            id="pt"
+                            value="  View free periods of a class  "
+
+                            />
+                    </Link>        
+                    </div>
+                    </div>
+                    <div class="fl w-100 w-50-ns pa2">
+                        <div className="" style={{textAlign:'center',marginTop:"5%"}}>
+                        <Link to="free"> 
+                            <input
+                        
+                                className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f2 blue dib"
+                                type="button"
+                                id="roc"
+                                value="Find out when a room is free"
+
+                                />
+                        </Link>   
+                        </div>
+                    
+                    </div>
+                </div>
+                </div>
 
 
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Register.css';
 import pic1 from './undraw.png';
+import swal from 'sweetalert';
 class Register extends React.Component {
   constructor(props) {
     super(props);
@@ -72,12 +73,14 @@ class Register extends React.Component {
           console.log(resp)
             if(resp.status){
               
-                alert("OTP sent");
+                swal("Success!", "OTP sent", "success");
 
                 //this.props.loadUser(user);
             }
             else{
-                alert("Invalid credentials")
+                //alert("Invalid credentials")
+                swal("Failed!","Invalid credentials","error")
+                
             }
         })
 
@@ -114,7 +117,8 @@ class Register extends React.Component {
 
               }
               else{
-                alert("OTP mismatch");
+                //alert("OTP mismatch");
+                swal("Failed!","OTP mismatch","error")
               }
               
                 
@@ -122,7 +126,9 @@ class Register extends React.Component {
                 //this.props.loadUser(user);
             }
             else{
-                alert("Didn't receive OTP try again")
+                //alert("Didn't receive OTP try again")
+                swal("Failed!","Didn't receive OTP try again","error")
+                
             }
         })
 
@@ -142,16 +148,16 @@ class Register extends React.Component {
 
     if (!(password.valueOf()===confpassword.valueOf())){
       console.log(password);
-      return alert("Password mismatch")
+      return swal("Failed!","Password mismatch","error")
     }
 
 
     if(!(name.trim().match(name_check) && phoneNumber.match(numbers_check) && email.trim().match(mail_check))){
-        return alert("Invalid entries")
+        return swal("Failed!","Invalid entries","error")
     }
 
     if(this.otpVerified === false){
-      return alert("OTP not yet verified")
+      return swal("Failed!","OTP not yet verified","error")
     }
     
 
@@ -170,13 +176,15 @@ class Register extends React.Component {
       .then(response => response.json())
       .then(user=>{
         if(user.email){
-          alert("Successfully Registered")
+
+          swal("Success!", "Successfully Registered", "success");
           this.redirectToSignin()
 
           
         }
         else{
-          alert("Invalid Credentials")
+        
+          swal("Failed!","Invalid Credentials","error")
         }
       })
     

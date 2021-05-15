@@ -1,6 +1,12 @@
 import React from 'react';
+import swal from 'sweetalert';
 
 class ReserveParticular extends React.Component {
+
+    redirectToAfterReserve = () => {
+        const { history } = this.props;
+        if(history) history.push('/dispproftimetable');
+    }    
 
     onClickReserve=() =>{
         var secnumber=document.getElementById("class").value;
@@ -28,13 +34,15 @@ class ReserveParticular extends React.Component {
                 .then(response => response.json())
                 .then(status=>{
                     if(status.status==="Success"){
-                      alert("Successfully Reserved Permanently")
-            
-                      
-                    }
-                    else{
-                      alert("Reservation Failed! Check the data entered")
-                    }
+                        //alert("Successfully Reserved a Room Permanently")
+                        swal("Success!", " Reserved a Room Temporarily", "success");
+                        this.redirectToAfterReserve()
+                        
+                      }
+                      else{
+
+                        swal("Failed!",status.status,"error")
+                      }
                   })
         }
         else{
@@ -53,14 +61,30 @@ class ReserveParticular extends React.Component {
                 })
                 .then(response => response.json())
                 .then(status=>{
-                    alert(status.status)
+                    if(status.status==="Success"){
+                        //alert("Successfully Reserved a Room Permanently")
+                        swal("Success!", " Reserved a Room Temporarily", "success");
+                        this.redirectToAfterReserve()
+                        
+                      }
+                      else{
+
+                        swal("Failed!",status.status,"error")
+                      }
+
                   })
 
         }
 
+
+
     }
     render() {
-        const { onRouteChange } = this.props;
+        let class_list = this.props.data;
+        console.log(class_list)
+        let classOptionItems = class_list.map((item) =>
+                <option value={item.secnumber}>{item.secnumber}</option>
+            );
         
         
         return (
@@ -79,13 +103,33 @@ class ReserveParticular extends React.Component {
                     
                     <form class="pa4 black-80">
                         <label  class="f6 b db mb2">Class</label>
-                        <input id="class" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text"/>
+                        <select id="class" class="w-100 db h2 f6 bg-near-white ba b--sliver gray" name="" >
+                            <option value="">Choose the class</option>
+                            {classOptionItems}
+                        </select>
                         <label  class="f6 b db mb2">Subject</label>
                         <input id="subject" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text"/>
                         <label  class="f6 b db mb2">Day</label>
-                        <input id="day" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text"/>
+                        <select id="day" class="w-100 db h2 f6 bg-near-white ba b--sliver gray" name="" >
+                                    <option value="">Choose the day</option>
+                                    <option value="MONDAY">MONDAY</option>
+                                    <option value="TUESDAY">TUESDAY</option>
+                                    <option value="WEDNESDAY">WEDNESDAY</option>
+                                    <option value="THURSDAY">THURSDAY</option>
+                                    <option value="FRIDAY">FRIDAY</option>
+                                </select>
                         <label  class="f6 b db mb2">Period</label>
-                        <input id="period" class="input-reset ba b--black-20 pa2 mb2 db w-100" type="text"/>
+
+                                <select id="period" class="w-100 db h2 f6 bg-near-white ba b--sliver gray" name="" >
+                                    <option value="">Choose the period here</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                </select>
+                           
                         <div class="flex items-center mb2">
                             <input class="mr2" type="checkbox" id="reserveperm" />
                             <label htmlFor="reserveperm" class="lh-copy f6 b">Reserve Permanently</label>

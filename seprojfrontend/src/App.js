@@ -11,6 +11,8 @@ import Getdata from './components/Timetable/Getdata';
 import Home from './components/Home/Home';
 import Aftersignin from './components/Signin/aftersignin'
 import Forgotpass from './components/Forgotpass/Forgotpass';
+
+import swal from 'sweetalert';
 import {
   BrowserRouter as Router,
   Switch, 
@@ -61,10 +63,13 @@ class App extends Component{
             <Route path="/settimetable" component={Getdata}/>
             <Route path="/dispcltimetable" component={Getdata}/>
             <Route path="/disproomtimetable" component={Getdata}/>
+            <Route path="/free" component={Getdata}/>
+            <Route path="/freeclass" component={Getdata}/>
             <Route path="/dispproftimetable" component={Getdata}/>
-            <Route path="/reservepartic" component={ReserveParticular}/>
-            <Route path="/cancelpartic" component={CancelParticular}/>
-            <Route path="/transferreservation" component={TransferReservation}/>
+            <Route path="/reservepartic" component={Getdata}/>
+            <Route path="/cancelpartic" component={Getdata}/>
+            <Route path="/transferreservation" component={Getdata}/>
+            <Route path="/subsetclass" component={Getdata}/>
           {/* <OccupancyChart onRouteChange={this.onRouteChange}/>
           
             {  route === 'home'

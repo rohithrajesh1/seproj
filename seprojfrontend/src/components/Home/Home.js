@@ -54,9 +54,13 @@ class Home extends React.Component {
                     <div class="cf ph2-ns">
                         <div class="fl w-100 w-50-ns pa2">
                         <div class="ph3 mb4 ma4">
-
+                    {console.log(localStorage.getItem('usermail'))}
+                    {localStorage.getItem('usermail')===null?
                     <Link to="/reservecancel"><a class="f2 link dim br3 ba bw2 ph3 pv2 mb2 dib  "  >Reserve a room or Cancel a room booking </a></Link>
+                    :
+                    <Link to="/aftersignin"><a class="f2 link dim br3 ba bw2 ph3 pv2 mb2 dib  "  >Reserve a room or Cancel a room booking </a></Link>
 
+                    }
                 </div>
                         </div>
                         <div class="fl w-100 w-50-ns pa2 center">
